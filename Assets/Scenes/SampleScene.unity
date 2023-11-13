@@ -684,7 +684,7 @@ GameObject:
   - component: {fileID: 472304576}
   - component: {fileID: 472304575}
   - component: {fileID: 472304574}
-  - component: {fileID: 472304573}
+  - component: {fileID: 472304578}
   - component: {fileID: 472304572}
   m_Layer: 0
   m_Name: Capsule
@@ -711,32 +711,6 @@ MonoBehaviour:
   lookSpeed: 2
   lookXLimit: 45
   canMove: 1
---- !u!143 &472304573
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472304571}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &472304574
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -818,7 +792,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472304571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 16.09, z: -190.8}
+  m_LocalPosition: {x: 0, y: 20.69, z: -190.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -826,6 +800,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &472304578
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472304571}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &587274318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100317862701}
   - component: {fileID: 5508780100317862698}
+  - component: {fileID: 5508780100317862702}
   m_Layer: 0
   m_Name: leafs (2)
   m_TagString: Untagged
@@ -1375,6 +1377,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5508780100317862702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100317862699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780100340079512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,6 +1810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100436058641}
   - component: {fileID: 5508780100436058654}
+  - component: {fileID: 5508780100436058656}
   m_Layer: 0
   m_Name: bigrock (8)
   m_TagString: Untagged
@@ -1803,6 +1818,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780100436058656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100436058655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780100476611334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,6 +1840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100476611448}
   - component: {fileID: 5508780100476611449}
+  - component: {fileID: 5508780100476611450}
   m_Layer: 0
   m_Name: leafs (1)
   m_TagString: Untagged
@@ -1887,6 +1915,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780100476611450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100476611334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780100495665872
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1949,6 +1989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100495665875}
   - component: {fileID: 5508780100495665872}
+  - component: {fileID: 5508780100495665876}
   m_Layer: 0
   m_Name: leafs2 (1)
   m_TagString: Untagged
@@ -1971,6 +2012,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -0.136, y: -0.527, z: 3.622}
+--- !u!114 &5508780100495665876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100495665873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780100495985798
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2033,6 +2086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100495985913}
   - component: {fileID: 5508780100495985798}
+  - component: {fileID: 5508780100495985914}
   m_Layer: 0
   m_Name: leafs2
   m_TagString: Untagged
@@ -2055,6 +2109,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5508780100495985914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100495985799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780100645337240
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,6 +2131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100645337242}
   - component: {fileID: 5508780100645337243}
+  - component: {fileID: 5508780100645337244}
   m_Layer: 0
   m_Name: Lightning_Grad (1)
   m_TagString: Untagged
@@ -2139,6 +2206,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780100645337244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100645337240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780100668726796
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2201,6 +2280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100668726799}
   - component: {fileID: 5508780100668726796}
+  - component: {fileID: 5508780100668726800}
   m_Layer: 0
   m_Name: leafs
   m_TagString: Untagged
@@ -2223,6 +2303,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5508780100668726800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100668726797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5508780100682235736
 Transform:
   m_ObjectHideFlags: 0
@@ -2301,6 +2393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100686606204}
   - component: {fileID: 5508780100686606205}
+  - component: {fileID: 5508780100686606206}
   m_Layer: 0
   m_Name: bigrock (2)
   m_TagString: Untagged
@@ -2378,6 +2471,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780100686606206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100686606202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780100729920714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,6 +2493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100729920716}
   - component: {fileID: 5508780100729920717}
+  - component: {fileID: 5508780100729920718}
   m_Layer: 0
   m_Name: leafs2 (9)
   m_TagString: Untagged
@@ -2462,6 +2568,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780100729920718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100729920714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780100756287362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,6 +2590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100756287364}
   - component: {fileID: 5508780100756287365}
+  - component: {fileID: 5508780100756287366}
   m_Layer: 0
   m_Name: bigrock (5)
   m_TagString: Untagged
@@ -2546,6 +2665,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780100756287366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100756287362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780100767956090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,6 +2687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100767956092}
   - component: {fileID: 5508780100767956093}
+  - component: {fileID: 5508780100767956094}
   m_Layer: 0
   m_Name: leafs2 (6)
   m_TagString: Untagged
@@ -2630,6 +2762,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780100767956094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100767956090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780100768530612
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2692,6 +2836,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100768530615}
   - component: {fileID: 5508780100768530612}
+  - component: {fileID: 5508780100768530616}
   m_Layer: 0
   m_Name: rock (1)
   m_TagString: Untagged
@@ -2714,6 +2859,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5508780100768530616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100768530613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5508780100775087769
 Transform:
   m_ObjectHideFlags: 0
@@ -2791,6 +2948,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100775087769}
   - component: {fileID: 5508780100775087782}
+  - component: {fileID: 5508780100775087784}
   m_Layer: 0
   m_Name: leafs (7)
   m_TagString: Untagged
@@ -2798,6 +2956,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780100775087784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100775087783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5508780100861059297
 Transform:
   m_ObjectHideFlags: 0
@@ -2875,6 +3045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100861059297}
   - component: {fileID: 5508780100861059310}
+  - component: {fileID: 5508780100861059312}
   m_Layer: 0
   m_Name: Lightning_Grad
   m_TagString: Untagged
@@ -2882,6 +3053,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780100861059312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100861059311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780100865864012
 GameObject:
   m_ObjectHideFlags: 0
@@ -2892,6 +3075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100865864014}
   - component: {fileID: 5508780100865864015}
+  - component: {fileID: 5508780100865864016}
   m_Layer: 0
   m_Name: fog (5)
   m_TagString: Untagged
@@ -2966,6 +3150,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780100865864016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100865864012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780100896994340
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3028,6 +3224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100896994343}
   - component: {fileID: 5508780100896994340}
+  - component: {fileID: 5508780100896994344}
   m_Layer: 0
   m_Name: leafs2 (10)
   m_TagString: Untagged
@@ -3050,6 +3247,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -12.923, y: -13.727, z: 18.635}
+--- !u!114 &5508780100896994344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100896994341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &5508780100943277009
 Animator:
   serializedVersion: 5
@@ -3449,6 +3658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100986781049}
   - component: {fileID: 5508780100986780934}
+  - component: {fileID: 5508780100986781050}
   m_Layer: 0
   m_Name: Lightning_Grad (2)
   m_TagString: Untagged
@@ -3471,6 +3681,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 205.153, y: 1.3379974, z: -7.147003}
+--- !u!114 &5508780100986781050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100986780935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5508780100987904049
 Transform:
   m_ObjectHideFlags: 0
@@ -3548,6 +3770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780100987904049}
   - component: {fileID: 5508780100987904062}
+  - component: {fileID: 5508780100987904064}
   m_Layer: 0
   m_Name: leafs (9)
   m_TagString: Untagged
@@ -3555,6 +3778,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780100987904064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780100987904063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780101007337772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3701,6 +3936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101025169319}
   - component: {fileID: 5508780101025169316}
+  - component: {fileID: 5508780101025169320}
   m_Layer: 0
   m_Name: fog (4)
   m_TagString: Untagged
@@ -3723,6 +3959,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5508780101025169320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101025169317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780101093770952
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3800,6 +4048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101093770953}
   - component: {fileID: 5508780101093770952}
+  - component: {fileID: 5508780101093770967}
   m_Layer: 0
   m_Name: bigrock (4)
   m_TagString: Untagged
@@ -3807,6 +4056,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780101093770967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101093770966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780101101383970
 GameObject:
   m_ObjectHideFlags: 0
@@ -3817,6 +4078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101101383972}
   - component: {fileID: 5508780101101383973}
+  - component: {fileID: 5508780101101383974}
   m_Layer: 0
   m_Name: totem
   m_TagString: Untagged
@@ -3891,6 +4153,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780101101383974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101101383970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780101136976820
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3953,6 +4227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101136976823}
   - component: {fileID: 5508780101136976820}
+  - component: {fileID: 5508780101136976824}
   m_Layer: 0
   m_Name: leafs2 (3)
   m_TagString: Untagged
@@ -3975,6 +4250,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -0.136, y: -0.527, z: -1.664}
+--- !u!114 &5508780101136976824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101136976821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5508780101148011760
 Transform:
   m_ObjectHideFlags: 0
@@ -4052,6 +4339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101148011760}
   - component: {fileID: 5508780101148011761}
+  - component: {fileID: 5508780101148011775}
   m_Layer: 0
   m_Name: smallrock
   m_TagString: Untagged
@@ -4059,6 +4347,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780101148011775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101148011774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5508780101152805848
 Transform:
   m_ObjectHideFlags: 0
@@ -4220,6 +4520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101203544041}
   - component: {fileID: 5508780101203544054}
+  - component: {fileID: 5508780101203544056}
   m_Layer: 0
   m_Name: bigrock (6)
   m_TagString: Untagged
@@ -4227,6 +4528,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780101203544056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101203544055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780101221866330
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,6 +4653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101244401974}
   - component: {fileID: 5508780101244401975}
+  - component: {fileID: 5508780101244401976}
   m_Layer: 0
   m_Name: bigrock (1)
   m_TagString: Untagged
@@ -4414,6 +4728,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780101244401976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101244401972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780101247237432
 GameObject:
   m_ObjectHideFlags: 0
@@ -4425,6 +4751,7 @@ GameObject:
   - component: {fileID: 5508780101247237434}
   - component: {fileID: 5508780101247237435}
   - component: {fileID: 5508780101247237437}
+  - component: {fileID: 5508780101247237438}
   m_Layer: 0
   m_Name: creature
   m_TagString: Untagged
@@ -4520,6 +4847,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5508780101247237438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101247237432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780101262766537
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4799,6 +5138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101320360177}
   - component: {fileID: 5508780101320360190}
+  - component: {fileID: 5508780101320360192}
   m_Layer: 0
   m_Name: leafs (5)
   m_TagString: Untagged
@@ -4806,6 +5146,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780101320360192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101320360191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780101343216144
 GameObject:
   m_ObjectHideFlags: 0
@@ -4816,6 +5168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101343216146}
   - component: {fileID: 5508780101343216147}
+  - component: {fileID: 5508780101343216148}
   m_Layer: 0
   m_Name: leafs2 (8)
   m_TagString: Untagged
@@ -4890,6 +5243,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780101343216148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101343216144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780101383183098
 GameObject:
   m_ObjectHideFlags: 0
@@ -4900,6 +5265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101383183100}
   - component: {fileID: 5508780101383183101}
+  - component: {fileID: 5508780101383183102}
   m_Layer: 0
   m_Name: fog (3)
   m_TagString: Untagged
@@ -4974,6 +5340,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780101383183102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101383183098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5508780101395159969
 Transform:
   m_ObjectHideFlags: 0
@@ -5051,6 +5429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101395159969}
   - component: {fileID: 5508780101395159982}
+  - component: {fileID: 5508780101395159984}
   m_Layer: 0
   m_Name: leafs (6)
   m_TagString: Untagged
@@ -5058,6 +5437,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780101395159984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101395159983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780101399028764
 GameObject:
   m_ObjectHideFlags: 0
@@ -5068,6 +5459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101399028766}
   - component: {fileID: 5508780101399028767}
+  - component: {fileID: 5508780101399028768}
   m_Layer: 0
   m_Name: leafs (3)
   m_TagString: Untagged
@@ -5142,6 +5534,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780101399028768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101399028764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780101570410940
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5204,6 +5608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101570410943}
   - component: {fileID: 5508780101570410940}
+  - component: {fileID: 5508780101570410944}
   m_Layer: 0
   m_Name: bigrock (4)
   m_TagString: Untagged
@@ -5229,6 +5634,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -18.914, z: 0}
+--- !u!114 &5508780101570410944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101570410941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780101616468800
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5291,6 +5708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101616468803}
   - component: {fileID: 5508780101616468800}
+  - component: {fileID: 5508780101616468804}
   m_Layer: 0
   m_Name: rock
   m_TagString: Untagged
@@ -5313,6 +5731,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5508780101616468804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101616468801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5508780101618236224
 Transform:
   m_ObjectHideFlags: 0
@@ -5412,6 +5842,7 @@ GameObject:
   - component: {fileID: 5508780101618236224}
   - component: {fileID: 5508780101618236225}
   - component: {fileID: 5508780101618236227}
+  - component: {fileID: 5508780101618236239}
   m_Layer: 0
   m_Name: creature (1)
   m_TagString: Untagged
@@ -5419,6 +5850,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780101618236239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101618236238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780101623663260
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5481,6 +5924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101623663263}
   - component: {fileID: 5508780101623663260}
+  - component: {fileID: 5508780101623663264}
   m_Layer: 0
   m_Name: bigrock (7)
   m_TagString: Untagged
@@ -5503,6 +5947,18 @@ Transform:
   m_Father: {fileID: 5508780100686606204}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 1.325, z: 0}
+--- !u!114 &5508780101623663264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101623663261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5508780101649154568
 Transform:
   m_ObjectHideFlags: 0
@@ -5580,6 +6036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101649154568}
   - component: {fileID: 5508780101649154569}
+  - component: {fileID: 5508780101649154583}
   m_Layer: 0
   m_Name: fog (1)
   m_TagString: Untagged
@@ -5587,6 +6044,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780101649154583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101649154582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780101669106514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5649,6 +6118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101669106517}
   - component: {fileID: 5508780101669106514}
+  - component: {fileID: 5508780101669106518}
   m_Layer: 0
   m_Name: bigrock
   m_TagString: Untagged
@@ -5674,6 +6144,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -13.224, z: 0}
+--- !u!114 &5508780101669106518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101669106515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780101698425140
 GameObject:
   m_ObjectHideFlags: 0
@@ -5684,6 +6166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101698425142}
   - component: {fileID: 5508780101698425143}
+  - component: {fileID: 5508780101698425144}
   m_Layer: 0
   m_Name: bigrock (9)
   m_TagString: Untagged
@@ -5758,6 +6241,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780101698425144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101698425140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780101771602920
 GameObject:
   m_ObjectHideFlags: 0
@@ -5988,6 +6483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101848716967}
   - component: {fileID: 5508780101848716964}
+  - component: {fileID: 5508780101848716968}
   m_Layer: 0
   m_Name: rock (2)
   m_TagString: Untagged
@@ -6010,6 +6506,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5508780101848716968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101848716965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780101904650042
 GameObject:
   m_ObjectHideFlags: 0
@@ -6194,6 +6702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101948744337}
   - component: {fileID: 5508780101948744350}
+  - component: {fileID: 5508780101948744352}
   m_Layer: 0
   m_Name: bigrock (10)
   m_TagString: Untagged
@@ -6201,6 +6710,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780101948744352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101948744351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780101956043604
 GameObject:
   m_ObjectHideFlags: 0
@@ -6211,6 +6732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780101956043606}
   - component: {fileID: 5508780101956043607}
+  - component: {fileID: 5508780101956043608}
   m_Layer: 0
   m_Name: bigrock (3)
   m_TagString: Untagged
@@ -6286,6 +6808,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780101956043608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780101956043604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780102023279530
 GameObject:
   m_ObjectHideFlags: 0
@@ -6296,6 +6830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102023279532}
   - component: {fileID: 5508780102023279533}
+  - component: {fileID: 5508780102023279534}
   m_Layer: 0
   m_Name: leafs (8)
   m_TagString: Untagged
@@ -6370,6 +6905,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780102023279534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102023279530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780102046170886
 GameObject:
   m_ObjectHideFlags: 0
@@ -6505,6 +7052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102059075039}
   - component: {fileID: 5508780102059075036}
+  - component: {fileID: 5508780102059075040}
   m_Layer: 0
   m_Name: leafs (4)
   m_TagString: Untagged
@@ -6527,6 +7075,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5508780102059075040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102059075037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780102124716578
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6589,6 +7149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102124716581}
   - component: {fileID: 5508780102124716578}
+  - component: {fileID: 5508780102124716582}
   m_Layer: 0
   m_Name: smallrock (1)
   m_TagString: Untagged
@@ -6611,6 +7172,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5508780102124716582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102124716579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780102154750786
 GameObject:
   m_ObjectHideFlags: 0
@@ -6772,6 +7345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102160246736}
   - component: {fileID: 5508780102160246737}
+  - component: {fileID: 5508780102160246751}
   m_Layer: 0
   m_Name: leafs2 (2)
   m_TagString: Untagged
@@ -6779,6 +7353,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780102160246751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102160246750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780102204603736
 GameObject:
   m_ObjectHideFlags: 0
@@ -6789,6 +7375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102204603738}
   - component: {fileID: 5508780102204603739}
+  - component: {fileID: 5508780102204603740}
   m_Layer: 0
   m_Name: fog
   m_TagString: Untagged
@@ -6863,6 +7450,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780102204603740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102204603736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780102310588698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6873,6 +7472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102310588700}
   - component: {fileID: 5508780102310588701}
+  - component: {fileID: 5508780102310588702}
   m_Layer: 0
   m_Name: fog (2)
   m_TagString: Untagged
@@ -6947,6 +7547,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780102310588702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102310588698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780102325495996
 GameObject:
   m_ObjectHideFlags: 0
@@ -6957,6 +7569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102325495998}
   - component: {fileID: 5508780102325495999}
+  - component: {fileID: 5508780102325496000}
   m_Layer: 0
   m_Name: leafs2 (5)
   m_TagString: Untagged
@@ -7031,6 +7644,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780102325496000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102325495996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5508780102343533218
 GameObject:
   m_ObjectHideFlags: 0
@@ -7041,6 +7666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102343533220}
   - component: {fileID: 5508780102343533221}
+  - component: {fileID: 5508780102343533222}
   m_Layer: 0
   m_Name: bigrock (4)
   m_TagString: Untagged
@@ -7115,6 +7741,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780102343533222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102343533218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780102362569458
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7177,6 +7815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102362569461}
   - component: {fileID: 5508780102362569458}
+  - component: {fileID: 5508780102362569462}
   m_Layer: 0
   m_Name: leafs2 (7)
   m_TagString: Untagged
@@ -7199,6 +7838,18 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -12.923, y: -13.727, z: 5.295}
+--- !u!114 &5508780102362569462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102362569459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780102378165009
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7276,6 +7927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102378165022}
   - component: {fileID: 5508780102378165009}
+  - component: {fileID: 5508780102378165024}
   m_Layer: 0
   m_Name: bigrock (6)
   m_TagString: Untagged
@@ -7283,6 +7935,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5508780102378165024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102378165023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5508780102396290842
 Transform:
   m_ObjectHideFlags: 0
@@ -7308,6 +7972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102396290842}
   - component: {fileID: 5508780102396290845}
+  - component: {fileID: 5508780102396290846}
   m_Layer: 0
   m_Name: bigrock (5)
   m_TagString: Untagged
@@ -7367,6 +8032,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5508780102396290846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102396290843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5508780102399546154
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7429,6 +8106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5508780102399546157}
   - component: {fileID: 5508780102399546154}
+  - component: {fileID: 5508780102399546158}
   m_Layer: 0
   m_Name: leafs2 (4)
   m_TagString: Untagged
@@ -7451,3 +8129,15 @@ Transform:
   m_Father: {fileID: 410457019}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -8.131, y: -0.293, z: -1.681}
+--- !u!114 &5508780102399546158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5508780102399546155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed48fb1508e2cb4ca98e181df7b3e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
