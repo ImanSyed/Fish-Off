@@ -17,10 +17,15 @@ public class FPSController : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
+    private Camera cam;
+    private Rigidbody rb;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        cam = Camera.main;
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -38,7 +43,7 @@ public class FPSController : MonoBehaviour
         float curSpeedZ = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
         
-        moveDirection = (Camera.main.transform.forward * curSpeedZ) + (transform.right * curSpeedX);
+        moveDirection = (cam.transform.forward * curSpeedZ) + (transform.right * curSpeedX);
     }
 
     void LookInput()
@@ -54,6 +59,10 @@ public class FPSController : MonoBehaviour
         if(moveDirection != Vector3.zero && canMove)
         {
             transform.position += moveDirection * Time.deltaTime;
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
         }
     }
 }
