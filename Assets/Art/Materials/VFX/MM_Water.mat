@@ -57,6 +57,9 @@ Material:
     m_Floats:
     - _Ceil: 1
     - _Floor: 0.5
+    - _Fog_Distance: 100
+    - _Fog_Fade: 1
+    - _Fog_Offset: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Scale: 0.5
@@ -64,4 +67,5 @@ Material:
     m_Colors:
     - _Color_A: {r: 0.42256397, g: 0.62348694, b: 0.709, a: 0}
     - _Color_B: {r: 0.65186596, g: 0.766, b: 0.69865507, a: 0}
+    - _Fog: {r: 0.2779, g: 0.35089678, b: 0.397, a: 1}
   m_BuildTextureStacks: []
