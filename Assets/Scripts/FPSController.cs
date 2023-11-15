@@ -24,6 +24,7 @@ public class FPSController : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 15;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         cam = Camera.main;
