@@ -14,6 +14,8 @@ public class FPSController : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
 
+    public Light flashlight;
+
     [HideInInspector]
     public bool canMove = true;
 
@@ -34,6 +36,11 @@ public class FPSController : MonoBehaviour
         {
             MoveInput();
             LookInput();     
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            flashlight.enabled = !flashlight.enabled;
         }
     }
 
