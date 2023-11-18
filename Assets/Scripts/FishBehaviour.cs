@@ -6,8 +6,8 @@ using UnityEngine;
 public class FishBehaviour : MonoBehaviour
 {
     [SerializeField] private Fish myStats;
-    [SerializeField] private Collider collider;
-
+    [SerializeField] private Collider wanderBounds;
+    [SerializeField] private bool sharpTurns;
 
     public enum BehaviourState
     {
@@ -17,9 +17,10 @@ public class FishBehaviour : MonoBehaviour
         fleeing
     } 
     public BehaviourState currentBehaviourState;
+
     private Vector3 wayPoint, origin, previousDirection;
     private float wanderTime;
-
+    private Transform preyTarget, predatorTarget;
 
 
     // Start is called before the first frame update
@@ -31,6 +32,48 @@ public class FishBehaviour : MonoBehaviour
         SetBehaviourState(BehaviourState.wandering);
     }
 
+    /// <summary>
+    /// When the fish detects the player via its FishDetector
+    /// </summary>
+    public void Detect(int detectionType, Transform detectedBody)
+    {
+        // 0 prey, 1 player, 2 predator
+        switch(detectionType)
+        {
+            case 0: preyTarget = detectedBody;
+            break;
+           
+            case 1: 
+                switch (myStats.onDetectBehaviour)
+                {
+                    case "Chase": 
+                    preyTarget = detectedBody;
+                    SetBehaviourState(BehaviourState.chasing);
+                    break;
+
+                    case "Flee": SetBehaviourState(BehaviourState.fleeing);
+                    break;
+
+                    default: Debug.Log("Incorrect detection behaviour");
+                    break;
+                }
+            break;
+           
+            case 2: 
+            break;
+        }
+        
+    }
+
+    /// <summary>
+    /// Assign a new behaviour state for the fish
+    /// </summary>
+    /// <param name="behaviourState"></param>
+    private void SetBehaviourState(BehaviourState behaviourState)
+    {
+        currentBehaviourState = behaviourState;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +82,7 @@ public class FishBehaviour : MonoBehaviour
             case BehaviourState.wandering: Wander();
             return;
             
-            case BehaviourState.chasing: 
+            case BehaviourState.chasing: Chase();
             return;
             
             case BehaviourState.fleeing: 
@@ -48,6 +91,9 @@ public class FishBehaviour : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Make the fish wander within its wander bounds
+    /// </summary>
     private void Wander()
     {
         if(Vector3.Distance(transform.position, wayPoint) < 1f)
@@ -55,11 +101,18 @@ public class FishBehaviour : MonoBehaviour
             GenerateWayPoint();
         }
 
+        float turnRate = 3 * Time.deltaTime;
+
+        if(sharpTurns)
+        {
+            turnRate = 100;
+        }
+
         Vector3 targetDirection = wayPoint - transform.position;
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 3 * Time.deltaTime, 0);
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, turnRate, 0);
 
         Color lineColor = Color.red;
-        float lineLength = Mathf.Clamp(Vector3.Distance(transform.position, wayPoint), 1, 10);
+        float lineLength = Mathf.Clamp(Vector3.Distance(transform.position, wayPoint), 1, wanderBounds.bounds.size.z);
 
         lineColor.r = Mathf.Clamp(Vector3.Distance(transform.position, wayPoint), 0, 25) / 25;
         lineColor.g = 1 - lineColor.r;
@@ -67,17 +120,20 @@ public class FishBehaviour : MonoBehaviour
         int layermask = 1 << 2;
         layermask = ~layermask;
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, newDirection, out hit, 15, layermask))
+        if(Physics.Raycast(transform.position, newDirection, out hit, 50, layermask))
         {
             lineColor = Color.red;
 
-            if(Physics.Raycast(transform.position, previousDirection, out hit, 15, layermask))
+            if(Physics.Raycast(transform.position, previousDirection, out hit, 50, layermask))
             {
-                newDirection = Vector3.RotateTowards(transform.forward, transform.right, 6 * Time.deltaTime, 0);
+                bool b = Random.value > 0.5f;
+                Vector3 leftRight = b ? transform.right : -transform.right; 
+                Debug.Log(b + " " + leftRight);
+                newDirection = Vector3.RotateTowards(transform.forward, leftRight + transform.forward, turnRate * 5, 0);
             }
             else
             {
-                newDirection = Vector3.RotateTowards(transform.forward, previousDirection, 6 * Time.deltaTime, 0);
+                newDirection = Vector3.RotateTowards(transform.forward, previousDirection, turnRate * 5, 0);
             }
         }
 
@@ -88,7 +144,7 @@ public class FishBehaviour : MonoBehaviour
 
         wanderTime += Time.deltaTime;
 
-        if(wanderTime > 60)
+        if(wanderTime > 15)
         {
             GenerateWayPoint();
         }
@@ -100,19 +156,22 @@ public class FishBehaviour : MonoBehaviour
         }
     }
 
-    private void SetBehaviourState(BehaviourState behaviourState)
+    private void Chase()
     {
-        currentBehaviourState = behaviourState;
+
     }
 
-    private void GenerateWayPoint()
+
+    
+
+    public void GenerateWayPoint()
     {
         wanderTime = 0;
 
         Vector3 newPoint = origin;
-        newPoint.x += Random.Range(-collider.bounds.extents.x, collider.bounds.extents.x);
-        newPoint.y += Random.Range(-collider.bounds.extents.y, collider.bounds.extents.y);
-        newPoint.z += Random.Range(-collider.bounds.extents.z, collider.bounds.extents.z);
+        newPoint.x += Random.Range(-wanderBounds.bounds.extents.x, wanderBounds.bounds.extents.x);
+        newPoint.y += Random.Range(-wanderBounds.bounds.extents.y, wanderBounds.bounds.extents.y);
+        newPoint.z += Random.Range(-wanderBounds.bounds.extents.z, wanderBounds.bounds.extents.z);
         
         wayPoint = newPoint;
     }

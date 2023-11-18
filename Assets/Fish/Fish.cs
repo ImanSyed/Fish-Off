@@ -4,9 +4,10 @@ using UnityEngine;
 public class Fish : ScriptableObject
 {
     public string fishType;
-    public string onSightBehaviour, onAttackBehaviour;
+    public Sprite frontSprite, backSprite, sideSprite;
+    public string onDetectBehaviour, onAttackedBehaviour;
     public float wanderSpeed, fleeSpeed, chaseSpeed;
     public float fleeDistance, chaseDistance, chaseTime;
-    public Fish smallFish;
+    public Fish childFish;
 
 }
