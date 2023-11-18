@@ -16,11 +16,12 @@ MonoBehaviour:
   frontSprite: {fileID: 0}
   backSprite: {fileID: 0}
   sideSprite: {fileID: 0}
-  onSightBehaviour: '-'
-  onAttackBehaviour: '-'
-  wanderSpeed: 5
+  onDetectBehaviour: Chase
+  onAttackedBehaviour: 
+  wanderSpeed: 3
   fleeSpeed: 0
-  chaseSpeed: 0
+  chaseSpeed: 1
+  turnRate: 3
   fleeDistance: 0
   chaseDistance: 0
   chaseTime: 0

@@ -101,15 +101,15 @@ public class FishBehaviour : MonoBehaviour
             GenerateWayPoint();
         }
 
-        float turnRate = 3 * Time.deltaTime;
+        float turnRateModifier = Time.deltaTime;
 
         if(sharpTurns)
         {
-            turnRate = 100;
+            turnRateModifier = 100;
         }
 
         Vector3 targetDirection = wayPoint - transform.position;
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, turnRate, 0);
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, myStats.turnRate * turnRateModifier, 0);
 
         Color lineColor = Color.red;
         float lineLength = Mathf.Clamp(Vector3.Distance(transform.position, wayPoint), 1, wanderBounds.bounds.size.z);
@@ -123,17 +123,16 @@ public class FishBehaviour : MonoBehaviour
         if(Physics.Raycast(transform.position, newDirection, out hit, 50, layermask))
         {
             lineColor = Color.red;
-
+            turnRateModifier *= 5;
             if(Physics.Raycast(transform.position, previousDirection, out hit, 50, layermask))
             {
                 bool b = Random.value > 0.5f;
                 Vector3 leftRight = b ? transform.right : -transform.right; 
-                Debug.Log(b + " " + leftRight);
-                newDirection = Vector3.RotateTowards(transform.forward, leftRight + transform.forward, turnRate * 5, 0);
+                newDirection = Vector3.RotateTowards(transform.forward, leftRight + transform.forward, myStats.turnRate * turnRateModifier, 0);
             }
             else
             {
-                newDirection = Vector3.RotateTowards(transform.forward, previousDirection, turnRate * 5, 0);
+                newDirection = Vector3.RotateTowards(transform.forward, previousDirection, myStats.turnRate * turnRateModifier, 0);
             }
         }
 
@@ -154,14 +153,15 @@ public class FishBehaviour : MonoBehaviour
             previousDirection = newDirection;
 
         }
+
     }
 
     private void Chase()
     {
-
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, preyTarget.position - transform.position, myStats.turnRate, 0);
+        transform.rotation = Quaternion.LookRotation(newDirection);
+        transform.position += transform.forward * myStats.chaseSpeed * Time.deltaTime;
     }
-
-
     
 
     public void GenerateWayPoint()
