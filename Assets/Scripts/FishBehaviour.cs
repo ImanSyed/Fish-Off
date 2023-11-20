@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class FishBehaviour : MonoBehaviour
 {
-    [SerializeField] private Fish myStats;
+    public Fish myStats;
     [SerializeField] private Collider wanderBounds;
     [SerializeField] private bool sharpTurns;
+    [SerializeField] private SpriteRenderer frontSprite, sideSprite, backSprite;
+    private Transform renderPoint;
 
     public enum BehaviourState
     {
@@ -19,8 +21,9 @@ public class FishBehaviour : MonoBehaviour
     public BehaviourState currentBehaviourState;
 
     private Vector3 wayPoint, origin, previousDirection;
-    private float wanderTime;
+    private float wanderTime, chaseTime, fleeTime;
     private Transform preyTarget, predatorTarget;
+    private FPSController playerController;
 
 
     // Start is called before the first frame update
@@ -28,6 +31,14 @@ public class FishBehaviour : MonoBehaviour
     {
         origin = transform.position;
         wayPoint = origin;
+        renderPoint = sideSprite.transform;
+
+        frontSprite.sprite = myStats.frontSprite;
+        sideSprite.sprite = myStats.sideSprite;
+        backSprite.sprite = myStats.backSprite;
+
+
+        playerController = FindObjectOfType<FPSController>();
 
         SetBehaviourState(BehaviourState.wandering);
     }
@@ -35,34 +46,37 @@ public class FishBehaviour : MonoBehaviour
     /// <summary>
     /// When the fish detects the player via its FishDetector
     /// </summary>
-    public void Detect(int detectionType, Transform detectedBody)
+    public void Detect(int detectedHierarchy, Transform detectedBody)
     {
-        // 0 prey, 1 player, 2 predator
-        switch(detectionType)
+        if(detectedHierarchy == -1)
         {
-            case 0: preyTarget = detectedBody;
-            break;
-           
-            case 1: 
-                switch (myStats.onDetectBehaviour)
-                {
-                    case "Chase": 
-                    preyTarget = detectedBody;
-                    SetBehaviourState(BehaviourState.chasing);
-                    break;
+            switch (myStats.onDetectBehaviour)
+            {
+                case "Chase": 
+                preyTarget = detectedBody;
+                SetBehaviourState(BehaviourState.chasing);
+                break;
 
-                    case "Flee": SetBehaviourState(BehaviourState.fleeing);
-                    break;
+                case "Flee": SetBehaviourState(BehaviourState.fleeing);
+                break;
 
-                    default: Debug.Log("Incorrect detection behaviour");
-                    break;
-                }
-            break;
-           
-            case 2: 
-            break;
+                default: Debug.Log("Incorrect detection behaviour");
+                break;
+            }
         }
-        
+        else
+        {
+            if(detectedHierarchy > myStats.predatorHierarchy)
+            {
+                predatorTarget = detectedBody;
+                SetBehaviourState(BehaviourState.fleeing);
+            }
+            else if(detectedHierarchy < myStats.predatorHierarchy)
+            {
+                preyTarget = detectedBody;
+                SetBehaviourState(BehaviourState.chasing);
+            }
+        }
     }
 
     /// <summary>
@@ -71,21 +85,53 @@ public class FishBehaviour : MonoBehaviour
     /// <param name="behaviourState"></param>
     private void SetBehaviourState(BehaviourState behaviourState)
     {
-        currentBehaviourState = behaviourState;
+        if(currentBehaviourState != behaviourState)
+        {
+            currentBehaviourState = behaviourState;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        RenderFish();
+
         switch(currentBehaviourState)
         {
-            case BehaviourState.wandering: Wander();
+            case BehaviourState.wandering: 
+                if(myStats.wanderSharpTurns)
+                {
+                    sharpTurns = true;
+                }
+                else
+                {
+                    sharpTurns = false;
+                }
+                Wander();
             return;
             
-            case BehaviourState.chasing: Chase();
+            case BehaviourState.chasing: 
+                if(myStats.chaseSharpTurns)
+                {
+                    sharpTurns = true;
+                }
+                else
+                {
+                    sharpTurns = false;
+                }
+                Chase();
             return;
             
             case BehaviourState.fleeing: 
+                if(myStats.fleeSharpTurns)
+                {
+                    sharpTurns = true;
+                }
+                else
+                {
+                    sharpTurns = false;
+                }
+                Flee();            
             return;
             
         }
@@ -153,16 +199,53 @@ public class FishBehaviour : MonoBehaviour
             previousDirection = newDirection;
 
         }
-
     }
 
     private void Chase()
     {
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, preyTarget.position - transform.position, myStats.turnRate, 0);
+        float turnRateModifier = Time.deltaTime;
+
+        if(sharpTurns)
+        {
+            turnRateModifier = 100;
+        }
+
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, preyTarget.position - transform.position, myStats.turnRate * turnRateModifier, 0);
         transform.rotation = Quaternion.LookRotation(newDirection);
         transform.position += transform.forward * myStats.chaseSpeed * Time.deltaTime;
+
+        chaseTime += Time.deltaTime;
+
+        if(chaseTime > myStats.chaseDuration)
+        {
+            chaseTime = 0;
+            preyTarget = null;
+            SetBehaviourState(BehaviourState.wandering);
+        }
     }
-    
+
+     private void Flee()
+    {
+        float turnRateModifier = Time.deltaTime;
+
+        if(sharpTurns)
+        {
+            turnRateModifier = 100;
+        }
+
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, transform.position - predatorTarget.position, myStats.turnRate * turnRateModifier, 0);
+        transform.rotation = Quaternion.LookRotation(newDirection);
+        transform.position += transform.forward * myStats.fleeSpeed * Time.deltaTime;
+
+        fleeTime += Time.deltaTime;
+
+        if(fleeTime > myStats.chaseDuration)
+        {
+            predatorTarget = null;
+            fleeTime = 0;
+            SetBehaviourState(BehaviourState.wandering);
+        }
+    }
 
     public void GenerateWayPoint()
     {
@@ -174,5 +257,35 @@ public class FishBehaviour : MonoBehaviour
         newPoint.z += Random.Range(-wanderBounds.bounds.extents.z, wanderBounds.bounds.extents.z);
         
         wayPoint = newPoint;
+    }
+
+    private void RenderFish()
+    {
+        Vector3 playerDirection = playerController.transform.position - transform.position;
+        float angleToPlayer = Vector2.Angle(transform.forward.normalized, playerDirection.normalized);
+        Debug.Log(angleToPlayer);
+
+        if(angleToPlayer < 45)
+        {
+            Debug.Log("Front");
+            frontSprite.enabled = true;
+            sideSprite.enabled = false;
+            backSprite.enabled = false;
+        }
+        else if(angleToPlayer > 135)
+        {
+            Debug.Log("Back");
+            frontSprite.enabled = false;
+            sideSprite.enabled = false;
+            backSprite.enabled = true;
+        }
+        else
+        {
+            Debug.Log("Side");
+            frontSprite.enabled = false;
+            sideSprite.enabled = true;
+            backSprite.enabled = false;
+        }
+
     }
 }

@@ -13,16 +13,19 @@ MonoBehaviour:
   m_Name: Jellyfish
   m_EditorClassIdentifier: 
   fishType: Jellyfish
+  predatorHierarchy: 0
   frontSprite: {fileID: 0}
   backSprite: {fileID: 0}
   sideSprite: {fileID: 0}
   onDetectBehaviour: Chase
   onAttackedBehaviour: 
-  wanderSpeed: 3
+  wanderSpeed: 2
   fleeSpeed: 0
-  chaseSpeed: 1
+  chaseSpeed: 4
   turnRate: 3
-  fleeDistance: 0
-  chaseDistance: 0
-  chaseTime: 0
+  wanderSharpTurns: 0
+  fleeSharpTurns: 0
+  chaseSharpTurns: 0
+  fleeDuration: 0
+  chaseDuration: 10
   childFish: {fileID: 0}
