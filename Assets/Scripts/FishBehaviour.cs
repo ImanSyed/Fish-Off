@@ -10,6 +10,7 @@ public class FishBehaviour : MonoBehaviour
     [SerializeField] private bool sharpTurns;
     [SerializeField] private SpriteRenderer frontSprite, sideSprite, backSprite;
     private Transform renderPoint;
+    private Animator animator;
 
     public enum BehaviourState
     {
@@ -33,10 +34,11 @@ public class FishBehaviour : MonoBehaviour
         wayPoint = origin;
         renderPoint = sideSprite.transform;
 
+        animator = GetComponentInChildren<Animator>();
+
         frontSprite.sprite = myStats.frontSprite;
         sideSprite.sprite = myStats.sideSprite;
         backSprite.sprite = myStats.backSprite;
-
 
         playerController = FindObjectOfType<FPSController>();
 
@@ -99,6 +101,7 @@ public class FishBehaviour : MonoBehaviour
         switch(currentBehaviourState)
         {
             case BehaviourState.wandering: 
+                animator.Play("Move");
                 if(myStats.wanderSharpTurns)
                 {
                     sharpTurns = true;
@@ -111,6 +114,7 @@ public class FishBehaviour : MonoBehaviour
             return;
             
             case BehaviourState.chasing: 
+                animator.Play("Move");
                 if(myStats.chaseSharpTurns)
                 {
                     sharpTurns = true;
@@ -123,6 +127,7 @@ public class FishBehaviour : MonoBehaviour
             return;
             
             case BehaviourState.fleeing: 
+                animator.Play("Move");
                 if(myStats.fleeSharpTurns)
                 {
                     sharpTurns = true;
@@ -132,6 +137,10 @@ public class FishBehaviour : MonoBehaviour
                     sharpTurns = false;
                 }
                 Flee();            
+            return;
+
+            case BehaviourState.waiting:
+                animator.Play("Idle");
             return;
             
         }
@@ -261,27 +270,23 @@ public class FishBehaviour : MonoBehaviour
 
     private void RenderFish()
     {
-        Vector3 playerDirection = playerController.transform.position - transform.position;
+        Vector3 playerDirection = playerController.transform.position - renderPoint.position;
         float angleToPlayer = Vector2.Angle(transform.forward.normalized, playerDirection.normalized);
-        Debug.Log(angleToPlayer);
 
-        if(angleToPlayer < 45)
+        if(angleToPlayer < 45 && !frontSprite.enabled)
         {
-            Debug.Log("Front");
             frontSprite.enabled = true;
             sideSprite.enabled = false;
             backSprite.enabled = false;
         }
-        else if(angleToPlayer > 135)
+        if(angleToPlayer > 135 && !backSprite.enabled)
         {
-            Debug.Log("Back");
             frontSprite.enabled = false;
             sideSprite.enabled = false;
             backSprite.enabled = true;
         }
-        else
+        if(!sideSprite.enabled)
         {
-            Debug.Log("Side");
             frontSprite.enabled = false;
             sideSprite.enabled = true;
             backSprite.enabled = false;
