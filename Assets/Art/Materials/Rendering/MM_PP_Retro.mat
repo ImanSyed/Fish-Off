@@ -42,8 +42,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Color_Levels: 8
-    - _Dither_Intensity: 0.03
+    - _Color_Levels: 12
+    - _Dither_Intensity: 0.01
     - _Dither_Spread: 0.03
     - _Float: 0
     - _Float_1: 0.238
