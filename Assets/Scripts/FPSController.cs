@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class FPSController : MonoBehaviour
-{
+{   
+    [Header("Movement")]
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 11.5f;
     public Camera playerCamera;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
+    [HideInInspector] public bool canMove = true;
 
-    Vector3 moveDirection = Vector3.zero;
-    float rotationX = 0;
-
+    [Header("Weapons")]
+    [HideInInspector] public bool canShoot = true;
+    [SerializeField] private float shrinkRayDistance, suctionRayDistance;
+    [SerializeField] private float shrinkRayMagnitude, suctionRayMagnitude;
+    [SerializeField] private LayerMask hitLayerMask;
+    private FishBehaviour fishTarget;
     public Light flashlight;
 
-    [HideInInspector]
-    public bool canMove = true;
-
+    private Vector3 moveDirection = Vector3.zero;
+    private float rotationX = 0;
     private Camera cam;
     private Rigidbody rb;
 
@@ -37,6 +40,18 @@ public class FPSController : MonoBehaviour
         {
             MoveInput();
             LookInput();     
+        }
+
+        if(canShoot)
+        {  
+            if(Input.GetMouseButton(1))
+            {
+                Shrink();
+            }
+            else if(Input.GetMouseButton(0))
+            {
+                Suck();
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.F))
@@ -73,4 +88,28 @@ public class FPSController : MonoBehaviour
             rb.velocity = Vector3.zero;
         }
     }
+
+    void Shrink()
+    {
+        RaycastHit hit;
+
+        if(Physics.Raycast(transform.position, cam.transform.forward, out hit, shrinkRayDistance, hitLayerMask))
+        {
+            fishTarget = hit.transform.parent.GetComponent<FishBehaviour>();
+            fishTarget.ShrinkMe(shrinkRayMagnitude);
+        }
+        
+    }
+
+    void Suck()
+    {
+        RaycastHit hit;
+
+        if(Physics.Raycast(transform.position, cam.transform.forward, out hit, suctionRayDistance, hitLayerMask))
+        {
+            fishTarget = hit.transform.parent.GetComponent<FishBehaviour>();
+            fishTarget.SuckMe(suctionRayMagnitude);
+        }
+    }
+
 }

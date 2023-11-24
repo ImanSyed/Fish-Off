@@ -13,7 +13,6 @@ public class FishBounds : MonoBehaviour
         if(other == col && fishBehaviour.currentBehaviourState == FishBehaviour.BehaviourState.wandering)
         {
             fishBehaviour.GenerateWayPoint();
-            Debug.Log("Regenerating path");
         }    
     }
 }

@@ -100,8 +100,11 @@ public class FishBehaviour : MonoBehaviour
 
         switch(currentBehaviourState)
         {
-            case BehaviourState.wandering: 
-                animator.Play("Move");
+            case BehaviourState.wandering:
+                if(animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
+                {
+                    animator.Play("Move");
+                }
                 if(myStats.wanderSharpTurns)
                 {
                     sharpTurns = true;
@@ -114,7 +117,10 @@ public class FishBehaviour : MonoBehaviour
             return;
             
             case BehaviourState.chasing: 
-                animator.Play("Move");
+                if(animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
+                {
+                    animator.Play("Move");
+                }
                 if(myStats.chaseSharpTurns)
                 {
                     sharpTurns = true;
@@ -127,7 +133,10 @@ public class FishBehaviour : MonoBehaviour
             return;
             
             case BehaviourState.fleeing: 
-                animator.Play("Move");
+                if(animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
+                {
+                    animator.Play("Move");
+                }
                 if(myStats.fleeSharpTurns)
                 {
                     sharpTurns = true;
@@ -206,7 +215,6 @@ public class FishBehaviour : MonoBehaviour
         if(previousDirection != newDirection)
         {
             previousDirection = newDirection;
-
         }
     }
 
@@ -291,6 +299,15 @@ public class FishBehaviour : MonoBehaviour
             sideSprite.enabled = true;
             backSprite.enabled = false;
         }
+    }
 
+    public void ShrinkMe(float magnitude)
+    {
+        Debug.Log("Shrinking " + name);
+    }
+
+    public void SuckMe(float magnitude)
+    {
+        Debug.Log("Sucking " + name);
     }
 }
