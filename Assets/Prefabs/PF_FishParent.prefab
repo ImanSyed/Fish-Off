@@ -31,7 +31,7 @@ Transform:
   - {fileID: 622812488290714199}
   - {fileID: 7113277729026224476}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1387225900515856945
 GameObject:
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4515170010095416697}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Renderers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 6063644365399882633}
   - component: {fileID: 4587034562136563767}
   - component: {fileID: 8643801097524082441}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Side Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,14 +92,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741633361094045054}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4515170010095416697}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!212 &4587034562136563767
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 98f03c9d06268084db9329667846f216, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b864bc9293a8b54488227770042ab67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 3651607303234710210}
   - component: {fileID: 531565465579084411}
   - component: {fileID: 2605471190714105987}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Back Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4972348985037170934}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -239,7 +239,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 98f03c9d06268084db9329667846f216, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 3948290222241189410}
   - component: {fileID: 8689449344818714758}
   - component: {fileID: 2207406496146463536}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5719728360553370016}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -504,9 +504,9 @@ GameObject:
   - component: {fileID: 5535418888053733911}
   - component: {fileID: 3105859045615800101}
   - component: {fileID: 8241354198437402916}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -545,7 +545,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 11
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8241354198437402916
 Rigidbody:
@@ -642,6 +642,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish
       objectReference: {fileID: 0}
+    - target: {fileID: 7259657473242222593, guid: 53d4d0b1dfc5e004d9cbffca0872ff1d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259657473242222593, guid: 53d4d0b1dfc5e004d9cbffca0872ff1d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fish
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -662,6 +672,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6650918265212350052}
+    - targetCorrespondingSourceObject: {fileID: 7259657473242222593, guid: 53d4d0b1dfc5e004d9cbffca0872ff1d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7593266076909205055}
   m_SourcePrefab: {fileID: 100100000, guid: 53d4d0b1dfc5e004d9cbffca0872ff1d, type: 3}
 --- !u!1 &3288953310950090635 stripped
 GameObject:
@@ -684,7 +698,33 @@ MonoBehaviour:
   myStats: {fileID: 11400000, guid: c183c8fcc800722498bd1600db9600b1, type: 2}
   wanderBounds: {fileID: 7084727021063094592}
   sharpTurns: 0
+  frontSprite: {fileID: 8689449344818714758}
+  sideSprite: {fileID: 4587034562136563767}
+  backSprite: {fileID: 531565465579084411}
+  myRenderersTransform: {fileID: 4515170010095416697}
+  myColliderTransform: {fileID: 5535418888053733911}
   currentBehaviourState: 0
+--- !u!95 &7593266076909205055
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3288953310950090635}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25bab568223d72d47b063794dcdf9424, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &7113277729026224476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3147094707026560726, guid: 53d4d0b1dfc5e004d9cbffca0872ff1d,

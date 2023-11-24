@@ -8,8 +8,9 @@ public class Fish : ScriptableObject
     public Sprite frontSprite, backSprite, sideSprite;
     public string onDetectBehaviour, onAttackedBehaviour;
     public float wanderSpeed, fleeSpeed, chaseSpeed, turnRate;
-    public bool wanderSharpTurns, fleeSharpTurns, chaseSharpTurns;
     public float fleeDuration, chaseDuration;
+    public bool wanderSharpTurns, fleeSharpTurns, chaseSharpTurns;
+    public float minimumShrinkSize;
     public Fish childFish;
 
 }

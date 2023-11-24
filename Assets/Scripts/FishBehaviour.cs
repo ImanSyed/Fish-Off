@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class FishBehaviour : MonoBehaviour
@@ -9,6 +8,7 @@ public class FishBehaviour : MonoBehaviour
     [SerializeField] private Collider wanderBounds;
     [SerializeField] private bool sharpTurns;
     [SerializeField] private SpriteRenderer frontSprite, sideSprite, backSprite;
+    [SerializeField] private Transform myRenderersTransform, myColliderTransform;
     private Transform renderPoint;
     private Animator animator;
 
@@ -17,7 +17,9 @@ public class FishBehaviour : MonoBehaviour
         waiting,
         wandering, 
         chasing, 
-        fleeing
+        fleeing,
+        succing,
+        attacking
     } 
     public BehaviourState currentBehaviourState;
 
@@ -39,6 +41,11 @@ public class FishBehaviour : MonoBehaviour
         frontSprite.sprite = myStats.frontSprite;
         sideSprite.sprite = myStats.sideSprite;
         backSprite.sprite = myStats.backSprite;
+        frontSprite.enabled = false;
+        sideSprite.enabled = false;
+        backSprite.enabled = false;
+
+        myRenderersTransform = frontSprite.transform.parent;
 
         playerController = FindObjectOfType<FPSController>();
 
@@ -101,9 +108,9 @@ public class FishBehaviour : MonoBehaviour
         switch(currentBehaviourState)
         {
             case BehaviourState.wandering:
-                if(animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
+                if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
                 {
-                    animator.Play("Move");
+                    //animator.Play("Move", 0);
                 }
                 if(myStats.wanderSharpTurns)
                 {
@@ -117,9 +124,9 @@ public class FishBehaviour : MonoBehaviour
             return;
             
             case BehaviourState.chasing: 
-                if(animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
+                if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
                 {
-                    animator.Play("Move");
+                    //animator.Play("Move", 0);
                 }
                 if(myStats.chaseSharpTurns)
                 {
@@ -133,9 +140,9 @@ public class FishBehaviour : MonoBehaviour
             return;
             
             case BehaviourState.fleeing: 
-                if(animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
+                if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
                 {
-                    animator.Play("Move");
+                    //animator.Play("Move", 0);
                 }
                 if(myStats.fleeSharpTurns)
                 {
@@ -149,7 +156,10 @@ public class FishBehaviour : MonoBehaviour
             return;
 
             case BehaviourState.waiting:
-                animator.Play("Idle");
+                if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                {
+                    //animator.Play("Idle", 0);
+                }
             return;
             
         }
@@ -281,33 +291,52 @@ public class FishBehaviour : MonoBehaviour
         Vector3 playerDirection = playerController.transform.position - renderPoint.position;
         float angleToPlayer = Vector2.Angle(transform.forward.normalized, playerDirection.normalized);
 
-        if(angleToPlayer < 45 && !frontSprite.enabled)
+        if(angleToPlayer < 45)
         {
-            frontSprite.enabled = true;
-            sideSprite.enabled = false;
-            backSprite.enabled = false;
+            if(!frontSprite.enabled)
+            {
+                frontSprite.enabled = true;
+                sideSprite.enabled = false;
+                backSprite.enabled = false;
+            }
+            
         }
-        if(angleToPlayer > 135 && !backSprite.enabled)
+        else if(angleToPlayer > 135)
         {
-            frontSprite.enabled = false;
-            sideSprite.enabled = false;
-            backSprite.enabled = true;
+            if(!backSprite.enabled)
+            {
+                frontSprite.enabled = false;
+                sideSprite.enabled = false;
+                backSprite.enabled = true;
+            }
         }
-        if(!sideSprite.enabled)
+        else
         {
-            frontSprite.enabled = false;
-            sideSprite.enabled = true;
-            backSprite.enabled = false;
+            if(!sideSprite.enabled)
+            {
+                frontSprite.enabled = false;
+                sideSprite.enabled = true;
+                backSprite.enabled = false;
+            }
         }
     }
 
     public void ShrinkMe(float magnitude)
     {
-        Debug.Log("Shrinking " + name);
+        if(myRenderersTransform.localScale.x > myStats.minimumShrinkSize)
+        {
+            myRenderersTransform.localScale -= Vector3.one * magnitude * Time.deltaTime;
+            myColliderTransform.localScale = myRenderersTransform.localScale;
+        }
     }
 
     public void SuckMe(float magnitude)
     {
-        Debug.Log("Sucking " + name);
+        if(currentBehaviourState != BehaviourState.succing)
+        {
+            currentBehaviourState = BehaviourState.succing;
+        }
+        Vector3 succPos = Vector3.MoveTowards(transform.position, playerController.transform.position, magnitude * Time.deltaTime);
+        transform.position = succPos;
     }
 }

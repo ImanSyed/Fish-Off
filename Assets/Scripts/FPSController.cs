@@ -96,6 +96,7 @@ public class FPSController : MonoBehaviour
         if(Physics.Raycast(transform.position, cam.transform.forward, out hit, shrinkRayDistance, hitLayerMask))
         {
             fishTarget = hit.transform.parent.GetComponent<FishBehaviour>();
+            Debug.DrawRay(transform.position, fishTarget.transform.position, Color.blue);
             fishTarget.ShrinkMe(shrinkRayMagnitude);
         }
         
@@ -108,6 +109,7 @@ public class FPSController : MonoBehaviour
         if(Physics.Raycast(transform.position, cam.transform.forward, out hit, suctionRayDistance, hitLayerMask))
         {
             fishTarget = hit.transform.parent.GetComponent<FishBehaviour>();
+            Debug.DrawRay(transform.position, fishTarget.transform.position, Color.yellow);
             fishTarget.SuckMe(suctionRayMagnitude);
         }
     }
