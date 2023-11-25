@@ -4,16 +4,25 @@ public class Billboarder : MonoBehaviour
 {
     Camera mainCamera;
     SpriteRenderer spriteRenderer;
+    [SerializeField] private bool billboard, sorting;
 
     void Start()
     {
-        mainCamera = Camera.main;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        if(billboard)
+            mainCamera = Camera.main;
+        if(sorting)
+            spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void LateUpdate()
     {
-        transform.rotation = mainCamera.transform.rotation;
-        spriteRenderer.sortingOrder = Mathf.RoundToInt(Vector3.Distance(transform.position, mainCamera.transform.position) * -100);
+        if(billboard && transform.rotation != mainCamera.transform.rotation)
+        {
+            transform.rotation = mainCamera.transform.rotation;
+        }
+        if(sorting)
+        {
+            spriteRenderer.sortingOrder = Mathf.RoundToInt(Vector3.Distance(transform.position, mainCamera.transform.position) * -100);
+        }
     }
 }
