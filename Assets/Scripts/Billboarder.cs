@@ -8,8 +8,7 @@ public class Billboarder : MonoBehaviour
 
     void Start()
     {
-        if(billboard)
-            mainCamera = Camera.main;
+        mainCamera = Camera.main;
         if(sorting)
             spriteRenderer = GetComponent<SpriteRenderer>();
     }

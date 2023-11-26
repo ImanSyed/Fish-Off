@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FishBehaviour : MonoBehaviour
@@ -110,7 +111,7 @@ public class FishBehaviour : MonoBehaviour
             case BehaviourState.wandering:
                 if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
                 {
-                    //animator.Play("Move", 0);
+                    animator.Play("Move", 0);
                 }
                 if(myStats.wanderSharpTurns)
                 {
@@ -126,7 +127,7 @@ public class FishBehaviour : MonoBehaviour
             case BehaviourState.chasing: 
                 if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
                 {
-                    //animator.Play("Move", 0);
+                    animator.Play("Move", 0);
                 }
                 if(myStats.chaseSharpTurns)
                 {
@@ -142,7 +143,7 @@ public class FishBehaviour : MonoBehaviour
             case BehaviourState.fleeing: 
                 if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
                 {
-                    //animator.Play("Move", 0);
+                    animator.Play("Move", 0);
                 }
                 if(myStats.fleeSharpTurns)
                 {
@@ -158,7 +159,7 @@ public class FishBehaviour : MonoBehaviour
             case BehaviourState.waiting:
                 if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
                 {
-                    //animator.Play("Idle", 0);
+                    animator.Play("Idle", 0);
                 }
             return;
             
@@ -289,36 +290,56 @@ public class FishBehaviour : MonoBehaviour
     private void RenderFish()
     {
         Vector3 playerDirection = playerController.transform.position - renderPoint.position;
-        float angleToPlayer = Vector2.Angle(transform.forward.normalized, playerDirection.normalized);
+        playerDirection.y = 0;
+
+        float angleToPlayer = Vector3.Angle(transform.forward.normalized, playerDirection.normalized);
 
         if(angleToPlayer < 45)
         {
-            if(!frontSprite.enabled)
-            {
-                frontSprite.enabled = true;
-                sideSprite.enabled = false;
-                backSprite.enabled = false;
-            }
-            
+            frontSprite.enabled = true;
+            sideSprite.enabled = false;
+            backSprite.enabled = false;
         }
-        else if(angleToPlayer > 135)
+        else if(angleToPlayer > 135 )
         {
-            if(!backSprite.enabled)
-            {
-                frontSprite.enabled = false;
-                sideSprite.enabled = false;
-                backSprite.enabled = true;
-            }
+
+            frontSprite.enabled = false;
+            sideSprite.enabled = false;
+            backSprite.enabled = true;
         }
         else
         {
-            if(!sideSprite.enabled)
+            frontSprite.enabled = false;
+            sideSprite.enabled = true;
+            backSprite.enabled = false;
+            
+            if(AngleDir(transform.forward.normalized, playerDirection, Vector3.up))
             {
-                frontSprite.enabled = false;
-                sideSprite.enabled = true;
-                backSprite.enabled = false;
+                Debug.Log("Right");
+                sideSprite.flipX = false;
+            }
+            else
+            {
+                Debug.Log("Left");
+                sideSprite.flipX = true;
             }
         }
+    }
+
+    private bool AngleDir(Vector3 forward, Vector3 targetDir, Vector3 up)
+    {
+        Vector3 perp = Vector3.Cross(forward, targetDir);
+        float dir = Vector3.Dot(perp, up);
+        
+        if(dir > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
     public void ShrinkMe(float magnitude)

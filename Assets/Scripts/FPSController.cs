@@ -24,6 +24,8 @@ public class FPSController : MonoBehaviour
     private float rotationX = 0;
     private Camera cam;
     private Rigidbody rb;
+    private Dictionary<string, int> fishCollection = new Dictionary<string, int>();
+
 
     void Start()
     {
@@ -81,7 +83,7 @@ public class FPSController : MonoBehaviour
     {
         if(moveDirection != Vector3.zero && canMove)
         {
-            transform.position += moveDirection * Time.deltaTime;
+            rb.velocity = moveDirection * Time.deltaTime;
         }
         else
         {
@@ -114,4 +116,16 @@ public class FPSController : MonoBehaviour
         }
     }
 
+    private void CollectFish()
+    {
+        
+    }
+
+    private void OnCollisionEnter(Collision other) 
+    {
+        if(other.collider.CompareTag("Fish"))
+        {
+            
+        }
+    }
 }
