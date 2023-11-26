@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f412d54cf34b3d4a9d571bd2c564f48
+guid: 8bb8f514ef749414c816d8a2a354cb1b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Steinraus_attack_0
+      name: Steinrus_attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 89
-        height: 64
+        width: 51
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbbb0f4cdf4223d4e8d97a24a75d5ad5
-      internalID: 480125224
+      spriteID: 518ca59809c381741a609e10f6fa2f57
+      internalID: -319757229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Steinraus_attack_1
+      name: Steinrus_attack_1
       rect:
         serializedVersion: 2
-        x: 89
+        x: 51
         y: 0
-        width: 89
-        height: 64
+        width: 51
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a66f6d6f0be588428c3d4389af0ff53
-      internalID: 1541910724
+      spriteID: ebcd6005e1910e043a17ee461160671e
+      internalID: 2139060270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Steinraus_attack_2
+      name: Steinrus_attack_2
       rect:
         serializedVersion: 2
-        x: 178
+        x: 102
         y: 0
-        width: 89
-        height: 64
+        width: 51
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0fd5ad97f52b02489052e1eb27d860e
-      internalID: -810897877
+      spriteID: 73e9b035edf8c034383adeabfc5622f4
+      internalID: 1889218469
       vertices: []
       indices: 
       edges: []
@@ -175,7 +175,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7d1b0ba577353324dadf7ecaad0412ed
+    spriteID: f25b0cd258b2f90438244f42d15a859d
     internalID: 0
     vertices: []
     indices: 
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Steinraus_attack_0: 480125224
-      Steinraus_attack_1: 1541910724
-      Steinraus_attack_2: -810897877
+      Steinrus_attack_0: -319757229
+      Steinrus_attack_1: 2139060270
+      Steinrus_attack_2: 1889218469
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

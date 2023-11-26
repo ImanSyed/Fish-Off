@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a6c87d2ee5718a444bc4e8ad6eabe6e1
+guid: d6b3eab4d68269e4db36844f2d228721
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Steinraus_front_0
+      name: Steinrus_front_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 74
-        height: 64
+        width: 47
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 475c45e641ebb064d8081830960e613a
-      internalID: -932363408
+      spriteID: 7aa41badbb4679b4fbfd34acab425da5
+      internalID: 857019337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Steinraus_front_1
+      name: Steinrus_front_1
       rect:
         serializedVersion: 2
-        x: 74
+        x: 47
         y: 0
-        width: 74
-        height: 64
+        width: 47
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b41f8501e84692e47a4799a25cf4cb87
-      internalID: 1780358439
+      spriteID: d805a7924a690374a8687ba3d0dc88a4
+      internalID: 1982490570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Steinraus_front_2
+      name: Steinrus_front_2
       rect:
         serializedVersion: 2
-        x: 148
+        x: 94
         y: 0
-        width: 74
-        height: 64
+        width: 47
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4582e3ddc8218fe46b7af7b215ff1aea
-      internalID: 801953111
+      spriteID: b2b50233b09ec364187db261989fcaef
+      internalID: 746634968
       vertices: []
       indices: 
       edges: []
@@ -175,7 +175,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b8270390bde6a4742916725fd1bb26be
+    spriteID: d5f59834634b1754dad40d353ccfd29d
     internalID: 0
     vertices: []
     indices: 
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Steinraus_front_0: -932363408
-      Steinraus_front_1: 1780358439
-      Steinraus_front_2: 801953111
+      Steinrus_front_0: 857019337
+      Steinrus_front_1: 1982490570
+      Steinrus_front_2: 746634968
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
