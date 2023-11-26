@@ -20,6 +20,8 @@ public class FPSController : MonoBehaviour
     private FishBehaviour fishTarget;
     public Light flashlight;
 
+    [SerializeField] private float health;
+
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
     private Camera cam;
@@ -98,7 +100,6 @@ public class FPSController : MonoBehaviour
         if(Physics.Raycast(transform.position, cam.transform.forward, out hit, shrinkRayDistance, hitLayerMask))
         {
             fishTarget = hit.transform.parent.GetComponent<FishBehaviour>();
-            Debug.DrawRay(transform.position, fishTarget.transform.position, Color.blue);
             fishTarget.ShrinkMe(shrinkRayMagnitude);
         }
         
@@ -111,14 +112,13 @@ public class FPSController : MonoBehaviour
         if(Physics.Raycast(transform.position, cam.transform.forward, out hit, suctionRayDistance, hitLayerMask))
         {
             fishTarget = hit.transform.parent.GetComponent<FishBehaviour>();
-            Debug.DrawRay(transform.position, fishTarget.transform.position, Color.yellow);
             fishTarget.SuckMe(suctionRayMagnitude);
         }
     }
 
-    private void CollectFish()
+    public void TakeDamage(float damage)
     {
-        
+        health -= damage;
     }
 
     private void OnCollisionEnter(Collision other) 

@@ -12,9 +12,5 @@ public class FishDetector : MonoBehaviour
         {
             fishBehaviour.Detect(-1, other.transform);
         }    
-        else if(other.CompareTag("Fish") )
-        {
-            //fishBehaviour.Detect(other.GetComponent<FishBehaviour>().myStats.predatorHierarchy, other.transform);
-        }
     }
 }

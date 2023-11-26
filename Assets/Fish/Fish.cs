@@ -10,7 +10,7 @@ public class Fish : ScriptableObject
     public float wanderSpeed, fleeSpeed, chaseSpeed, turnRate;
     public float fleeDuration, chaseDuration;
     public bool wanderSharpTurns, fleeSharpTurns, chaseSharpTurns;
-    public float minimumShrinkSize;
+    public float minimumShrinkSize, attackDamage;
     public Fish childFish;
 
 }

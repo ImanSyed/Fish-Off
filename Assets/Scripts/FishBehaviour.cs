@@ -166,6 +166,8 @@ public class FishBehaviour : MonoBehaviour
         }
     }
 
+
+
     /// <summary>
     /// Make the fish wander within its wander bounds
     /// </summary>
@@ -315,12 +317,10 @@ public class FishBehaviour : MonoBehaviour
             
             if(AngleDir(transform.forward.normalized, playerDirection, Vector3.up))
             {
-                Debug.Log("Right");
                 sideSprite.flipX = false;
             }
             else
             {
-                Debug.Log("Left");
                 sideSprite.flipX = true;
             }
         }
