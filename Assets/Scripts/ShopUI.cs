@@ -9,24 +9,24 @@ public class ShopUI : MonoBehaviour
     [SerializeField] TMPro.TMP_Text moneyText;
     [SerializeField] GameObject shopFront;
     [SerializeField] int[] speedUpgradePrices, o2UpgradePrices;
+    [SerializeField] string maxMessage;
     [SerializeField] Sprite[] speedSprites, o2Sprites;
     [SerializeField] Button speedButton, o2Button;
+    [SerializeField] TMPro.TMP_Text speedPopupText, o2PopupText;
+
     int speedUpgradeCounter, o2UpgradeCounter;
     FPSController playerController;
     float speedIncreaseValue;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerController = FindObjectOfType<FPSController>();
-    }
+        moneyText.text = money.ToString();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        o2PopupText.text = o2UpgradePrices[o2UpgradeCounter].ToString();
+        speedPopupText.text = speedUpgradePrices[speedUpgradeCounter].ToString();
 
+    }
 
     public void ShowShop(bool b)
     {
@@ -38,37 +38,50 @@ public class ShopUI : MonoBehaviour
         money += changeValue;
         moneyText.text = money.ToString();
 
-        if(speedButton.interactable && speedUpgradePrices[speedUpgradeCounter] > money)
+        if(speedButton != null)
         {
-            speedButton.interactable = false;
+            if(speedButton.interactable && speedUpgradePrices[speedUpgradeCounter] > money)
+            {
+                speedButton.interactable = false;
+            }
+            else
+            {
+                speedButton.interactable = true;
+            }
         }
-        else
+        
+        if(o2Button != null)
         {
-            speedButton.interactable = true;
+            if(o2Button != null && o2Button.interactable && o2UpgradePrices[o2UpgradeCounter] > money)
+            {
+                o2Button.interactable = false;
+            }
+            else
+            {
+                o2Button.interactable = true;
+            }
         }
-
-        if(o2Button.interactable && o2UpgradePrices[o2UpgradeCounter] > money)
-        {
-            o2Button.interactable = false;
-        }
-        else
-        {
-            o2Button.interactable = true;
-        }
+        
 
     }
 
     public void UpgradeSpeed()
     {
+        if(speedUpgradePrices[speedUpgradeCounter] > money)
+        {
+            return;
+        }
+
         ChangeMoney(-speedUpgradePrices[speedUpgradeCounter]);
         speedUpgradeCounter++;
         speedButton.image.sprite = speedSprites[speedUpgradeCounter];
+        speedPopupText.text = speedUpgradePrices[speedUpgradeCounter].ToString();
 
         if(speedUpgradeCounter >= speedUpgradePrices.Length - 1)
         {
-            Debug.Log("!");
             speedButton.interactable = false;
             speedButton = null;
+            speedPopupText.text = maxMessage;
         }
 
         playerController.walkingSpeed += speedIncreaseValue;
@@ -77,14 +90,22 @@ public class ShopUI : MonoBehaviour
 
     public void UpgradeO2()
     {
+        if(o2UpgradePrices[o2UpgradeCounter] > money)
+        {
+            return;
+        }
+
         ChangeMoney(-o2UpgradePrices[o2UpgradeCounter]);
         o2UpgradeCounter++;
         o2Button.image.sprite = o2Sprites[o2UpgradeCounter];
+        o2PopupText.text = o2UpgradePrices[o2UpgradeCounter].ToString();
+
 
         if(o2UpgradeCounter >= o2UpgradePrices.Length - 1)
         {
             o2Button.interactable = false;
             o2Button = null;
+            o2PopupText.text = maxMessage;
         }
 
         playerController.walkingSpeed += speedIncreaseValue;
