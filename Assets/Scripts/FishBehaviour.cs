@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FishBehaviour : MonoBehaviour
@@ -28,7 +27,6 @@ public class FishBehaviour : MonoBehaviour
     private float wanderTime, chaseTime, fleeTime;
     private Transform preyTarget, predatorTarget;
     private FPSController playerController;
-
 
     // Start is called before the first frame update
     void Start()
@@ -165,8 +163,6 @@ public class FishBehaviour : MonoBehaviour
             
         }
     }
-
-
 
     /// <summary>
     /// Make the fish wander within its wander bounds
@@ -359,5 +355,11 @@ public class FishBehaviour : MonoBehaviour
         }
         Vector3 succPos = Vector3.MoveTowards(transform.position, playerController.transform.position, magnitude * Time.deltaTime);
         transform.position = succPos;
+    }
+
+    public void Catch()
+    {
+        playerController.fishCollection[myStats.fishType] = playerController.fishCollection[myStats.fishType]++;
+
     }
 }

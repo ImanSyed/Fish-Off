@@ -21,12 +21,14 @@ public class FPSController : MonoBehaviour
     public Light flashlight;
 
     [SerializeField] private float health;
+    public float maxO2;
+    private float currentO2;
 
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
     private Camera cam;
     private Rigidbody rb;
-    private Dictionary<string, int> fishCollection = new Dictionary<string, int>();
+    public Dictionary<string, int> fishCollection = new Dictionary<string, int>();
 
 
     void Start()
@@ -36,6 +38,26 @@ public class FPSController : MonoBehaviour
         Cursor.visible = false;
         cam = Camera.main;
         rb = GetComponent<Rigidbody>();
+        RefreshO2();
+        InitialiseFishCollection();
+    }
+
+    private void InitialiseFishCollection()
+    {
+        fishCollection.Add("Chin-Chin", 0);
+        fishCollection.Add("Dst_Byster", 0);
+        fishCollection.Add("Eyeguy", 0);
+        fishCollection.Add("Fishman", 0);
+        fishCollection.Add("Halihustur", 0);
+        fishCollection.Add("Longtailedjonrus", 0);
+        fishCollection.Add("Seaboneraven", 0);
+        fishCollection.Add("Shelpus", 0);
+        fishCollection.Add("Shol-gyth", 0);
+        fishCollection.Add("Shuk-tukhu", 0);
+        fishCollection.Add("Steinclover", 0);
+        fishCollection.Add("Steinraus", 0);
+        fishCollection.Add("Trapastavoid", 0);
+        fishCollection.Add("Wohl-oth", 0);
     }
 
     void Update()
@@ -93,6 +115,11 @@ public class FPSController : MonoBehaviour
         }
     }
 
+    public void RefreshO2()
+    {
+        currentO2 = maxO2;
+    }
+
     void Shrink()
     {
         RaycastHit hit;
@@ -123,9 +150,9 @@ public class FPSController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) 
     {
-        if(other.collider.CompareTag("Fish"))
+        if(other.collider.CompareTag("Fish") && other.gameObject.GetComponent<FishBehaviour>().myStats.canBeCaught)
         {
-            
+            fishCollection.Add(other.gameObject.GetComponent<FishBehaviour>().myStats.fishType, 1);
         }
     }
 }

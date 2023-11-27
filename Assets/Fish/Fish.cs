@@ -12,5 +12,6 @@ public class Fish : ScriptableObject
     public bool wanderSharpTurns, fleeSharpTurns, chaseSharpTurns;
     public float minimumShrinkSize, attackDamage;
     public Fish childFish;
+    public bool canBeCaught;
 
 }
