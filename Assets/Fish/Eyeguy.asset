@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 793951189cb414a44ace04fab4ba3d0b, type: 3}
-  m_Name: Jellyfish
+  m_Name: Eyeguy
   m_EditorClassIdentifier: 
-  fishType: Jellyfish
+  fishType: Eyeguy
   predatorHierarchy: 0
   frontSprite: {fileID: 21300000, guid: 98f03c9d06268084db9329667846f216, type: 3}
   backSprite: {fileID: 21300000, guid: 98f03c9d06268084db9329667846f216, type: 3}
@@ -29,4 +29,6 @@ MonoBehaviour:
   fleeSharpTurns: 0
   chaseSharpTurns: 0
   minimumShrinkSize: 0.1
-  childFish: {fileID: 0}
+  attackDamage: 0
+  childFish: {fileID: 11400000, guid: dbba539e8a8e55846a88d9a8c4b9b78f, type: 2}
+  canBeCaught: 0
