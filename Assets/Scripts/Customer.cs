@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    [SerializeField] Sprite headSprite, bodySprite;
+    [SerializeField] SpriteRenderer headSprite, bodySprite;
     [SerializeField] Sprite[] headSprites, bodySprites;
     [SerializeField] List<Bounty> tier1Bounties, tier2Bounties, tier3Bounties;
     Bounty currentBounty;
@@ -54,8 +54,6 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         animator.Play("Correct", 0);
         shopUI.ChangeMoney(currentBounty.reward);
 
-        List<Bounty> bounties = tier1Bounties;
-
         switch(currentTier)
         {
             case 1:
@@ -74,7 +72,7 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void ChangeForm()
     {
-         switch(currentTier)
+        switch(currentTier)
         {
             case 1:
                 currentBounty = tier1Bounties[Random.Range(0, tier1Bounties.Count)];
@@ -88,5 +86,7 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 currentBounty = tier3Bounties[Random.Range(0, tier1Bounties.Count)];
             break;
         }
+        headSprite.sprite = headSprites[Random.Range(0, headSprites.Length)];
+        bodySprite.sprite = bodySprites[Random.Range(0, bodySprites.Length)];
     }
 }
