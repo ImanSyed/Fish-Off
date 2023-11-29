@@ -9,14 +9,14 @@ public class ShopUI : MonoBehaviour
     [SerializeField] TMPro.TMP_Text moneyText;
     [SerializeField] GameObject shopFront;
     [SerializeField] int[] speedUpgradePrices, o2UpgradePrices;
-    [SerializeField] string maxMessage;
+    [SerializeField] float speedIncreaseValue, o2IncreaseValue;
+    [SerializeField] string maxedMessage;
     [SerializeField] Sprite[] speedSprites, o2Sprites;
     [SerializeField] Button speedButton, o2Button;
     [SerializeField] TMPro.TMP_Text speedPopupText, o2PopupText;
 
     int speedUpgradeCounter, o2UpgradeCounter;
     FPSController playerController;
-    float speedIncreaseValue;
 
     void Start()
     {
@@ -31,6 +31,18 @@ public class ShopUI : MonoBehaviour
     public void ShowShop(bool b)
     {
         shopFront.SetActive(b);
+        
+        Cursor.visible = b;
+        
+        if(!b)
+        {
+            playerController.Dive();
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 
     public void ChangeMoney(int changeValue)
@@ -61,8 +73,6 @@ public class ShopUI : MonoBehaviour
                 o2Button.interactable = true;
             }
         }
-        
-
     }
 
     public void UpgradeSpeed()
@@ -81,7 +91,7 @@ public class ShopUI : MonoBehaviour
         {
             speedButton.interactable = false;
             speedButton = null;
-            speedPopupText.text = maxMessage;
+            speedPopupText.text = maxedMessage;
         }
 
         playerController.walkingSpeed += speedIncreaseValue;
@@ -105,10 +115,10 @@ public class ShopUI : MonoBehaviour
         {
             o2Button.interactable = false;
             o2Button = null;
-            o2PopupText.text = maxMessage;
+            o2PopupText.text = maxedMessage;
         }
 
-        playerController.walkingSpeed += speedIncreaseValue;
-        playerController.runningSpeed += speedIncreaseValue;
+        playerController.maxO2 += o2IncreaseValue;
+        playerController.runningSpeed += o2IncreaseValue;
     }
 }

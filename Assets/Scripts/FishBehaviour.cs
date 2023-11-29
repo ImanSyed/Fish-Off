@@ -11,6 +11,7 @@ public class FishBehaviour : MonoBehaviour
     [SerializeField] private Transform myRenderersTransform, myColliderTransform;
     private Transform renderPoint;
     private Animator animator;
+    private AudioSource audioSource;
 
     public enum BehaviourState
     {
@@ -47,6 +48,8 @@ public class FishBehaviour : MonoBehaviour
         myRenderersTransform = frontSprite.transform.parent;
 
         playerController = FindObjectOfType<FPSController>();
+
+        audioSource = GetComponent<AudioSource>();
 
         SetBehaviourState(BehaviourState.wandering);
     }
@@ -160,6 +163,13 @@ public class FishBehaviour : MonoBehaviour
                     animator.Play("Idle", 0);
                 }
             return;
+
+            case BehaviourState.attacking:
+                if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+                {
+                    animator.Play("Attack", 0);
+                }
+            return;
             
         }
     }
@@ -184,18 +194,12 @@ public class FishBehaviour : MonoBehaviour
         Vector3 targetDirection = wayPoint - transform.position;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, myStats.turnRate * turnRateModifier, 0);
 
-        Color lineColor = Color.red;
-        float lineLength = Mathf.Clamp(Vector3.Distance(transform.position, wayPoint), 1, wanderBounds.bounds.size.z);
-
-        lineColor.r = Mathf.Clamp(Vector3.Distance(transform.position, wayPoint), 0, 25) / 25;
-        lineColor.g = 1 - lineColor.r;
         
         int layermask = 1 << 2;
         layermask = ~layermask;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, newDirection, out hit, 50, layermask))
         {
-            lineColor = Color.red;
             turnRateModifier *= 5;
             if(Physics.Raycast(transform.position, previousDirection, out hit, 50, layermask))
             {
@@ -209,7 +213,6 @@ public class FishBehaviour : MonoBehaviour
             }
         }
 
-        Debug.DrawRay(transform.position, newDirection * lineLength, lineColor);
         transform.rotation = Quaternion.LookRotation(newDirection);
 
         transform.position += transform.forward * myStats.wanderSpeed * Time.deltaTime;
@@ -271,6 +274,13 @@ public class FishBehaviour : MonoBehaviour
             fleeTime = 0;
             SetBehaviourState(BehaviourState.wandering);
         }
+    }
+
+    public void Attack()
+    {
+        SetBehaviourState(BehaviourState.attacking);
+        playerController.TakeDamage(myStats.attackDamage);
+        audioSource.PlayOneShot(myStats.attackSound);
     }
 
     public void GenerateWayPoint()
@@ -345,10 +355,22 @@ public class FishBehaviour : MonoBehaviour
             myRenderersTransform.localScale -= Vector3.one * magnitude * Time.deltaTime;
             myColliderTransform.localScale = myRenderersTransform.localScale;
         }
+        else if(!myStats.canBeCaught)
+        {
+            myStats = myStats.childFish;
+            animator.runtimeAnimatorController = myStats.animatorController;
+            myRenderersTransform.localScale = Vector3.one;
+            myColliderTransform.localScale = Vector3.one;
+        }
     }
 
     public void SuckMe(float magnitude)
     {
+        if(!myStats.canBeCaught)
+        {
+            return;
+        }
+
         if(currentBehaviourState != BehaviourState.succing)
         {
             currentBehaviourState = BehaviourState.succing;

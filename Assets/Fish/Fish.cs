@@ -13,5 +13,7 @@ public class Fish : ScriptableObject
     public float minimumShrinkSize, attackDamage;
     public Fish childFish;
     public bool canBeCaught;
+    public AudioClip swimSound, attackSound;
+    public AnimatorOverrideController animatorController;
 
 }

@@ -10,6 +10,7 @@ public class FPSController : MonoBehaviour
     public Camera playerCamera;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
+    [SerializeField] float waterYPoint, diveDistance;
     [HideInInspector] public bool canMove = true;
 
     [Header("Weapons")]
@@ -20,8 +21,8 @@ public class FPSController : MonoBehaviour
     private FishBehaviour fishTarget;
     public Light flashlight;
 
-    [SerializeField] private float health;
     public float maxO2;
+    [SerializeField] float o2DecreaseRate;
     private float currentO2;
 
     private Vector3 moveDirection = Vector3.zero;
@@ -29,6 +30,7 @@ public class FPSController : MonoBehaviour
     private Camera cam;
     private Rigidbody rb;
     public Dictionary<string, int> fishCollection = new Dictionary<string, int>();
+    private ShopUI shopUI;
 
 
     void Start()
@@ -37,6 +39,7 @@ public class FPSController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         cam = Camera.main;
+        shopUI = FindAnyObjectByType<ShopUI>();
         rb = GetComponent<Rigidbody>();
         RefreshO2();
         InitialiseFishCollection();
@@ -88,6 +91,13 @@ public class FPSController : MonoBehaviour
 
     void MoveInput()
     {
+        currentO2 -= o2DecreaseRate;
+        if(currentO2 <= 0)
+        {
+            //GAME OVER
+            return;
+        }
+
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
         float curSpeedZ = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
@@ -113,6 +123,34 @@ public class FPSController : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
         }
+
+        if(transform.position.y > waterYPoint)
+        {
+            canMove = false;
+            canShoot = false;
+            shopUI.ShowShop(true);
+        }
+    }
+
+    public void Dive()
+    {
+        Vector3 divePosition = transform.position;
+
+        RaycastHit hit;
+
+        if(Physics.Raycast(transform.position, Vector3.down, out hit, diveDistance))
+        {
+            divePosition.y = hit.point.y + 10; 
+        }
+        else
+        {
+            divePosition.y -= diveDistance;
+        }
+
+        transform.position = divePosition;
+
+        canMove = true;
+        canShoot = true;
     }
 
     public void RefreshO2()
@@ -129,7 +167,6 @@ public class FPSController : MonoBehaviour
             fishTarget = hit.transform.parent.GetComponent<FishBehaviour>();
             fishTarget.ShrinkMe(shrinkRayMagnitude);
         }
-        
     }
 
     void Suck()
@@ -145,8 +182,13 @@ public class FPSController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        currentO2 -= damage;
+        if(currentO2 <= 0)
+        {
+            //GAME OVER
+        }
     }
+
 
     private void OnCollisionEnter(Collision other) 
     {

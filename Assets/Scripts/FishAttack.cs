@@ -15,7 +15,7 @@ public class FishAttack : MonoBehaviour
     {
         if(fishBehaviour.currentBehaviourState == FishBehaviour.BehaviourState.chasing && other.CompareTag("Player"))
         {
-            other.GetComponent<FPSController>().TakeDamage(fishBehaviour.myStats.attackDamage);
+            fishBehaviour.Attack();
         }    
     }
 }
