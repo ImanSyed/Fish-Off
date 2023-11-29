@@ -1,8 +1,9 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Bounty")]
 public class Bounty : ScriptableObject
 {
-    public int reward;
-    public Sprite sprite;
     public string fishType;
+    public int reward, rewardRandomiser;
+    public Sprite sprite;
 }

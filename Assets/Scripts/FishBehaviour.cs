@@ -38,9 +38,6 @@ public class FishBehaviour : MonoBehaviour
 
         animator = GetComponentInChildren<Animator>();
 
-        frontSprite.sprite = myStats.frontSprite;
-        sideSprite.sprite = myStats.sideSprite;
-        backSprite.sprite = myStats.backSprite;
         frontSprite.enabled = false;
         sideSprite.enabled = false;
         backSprite.enabled = false;
