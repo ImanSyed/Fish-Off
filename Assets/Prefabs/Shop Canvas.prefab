@@ -1058,7 +1058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1bf7bc9c48b8ac8488d44787abd34644, type: 3}
+  m_Sprite: {fileID: -1675795552, guid: 84b13d679d28c264fb1d04b52a35aa89, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1874,13 +1874,13 @@ MonoBehaviour:
   o2UpgradePrices: 64000000c800000000000000
   maxMessage: MAX
   speedSprites:
-  - {fileID: 21300000, guid: 1a307e6957eb34947a5c5e4c7847a455, type: 3}
-  - {fileID: 21300000, guid: b1fa22c21991d8e47b71ad3bc7f7bd23, type: 3}
-  - {fileID: 21300000, guid: 5e08c68f4409b1e468d4dbc25339576b, type: 3}
+  - {fileID: -421902703, guid: 52afffe8cf9a522418b56b8cb252293c, type: 3}
+  - {fileID: -1088185167, guid: 52afffe8cf9a522418b56b8cb252293c, type: 3}
+  - {fileID: -811162144, guid: 52afffe8cf9a522418b56b8cb252293c, type: 3}
   o2Sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -1675795552, guid: 84b13d679d28c264fb1d04b52a35aa89, type: 3}
+  - {fileID: 1962522100, guid: 84b13d679d28c264fb1d04b52a35aa89, type: 3}
+  - {fileID: 214736837, guid: 84b13d679d28c264fb1d04b52a35aa89, type: 3}
   speedButton: {fileID: 5003019536973199760}
   o2Button: {fileID: 8175546897301436425}
   speedPopupText: {fileID: 7660036626598550079}
@@ -2586,7 +2586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5b988ec80a25fde44bff1ef491188c0d, type: 3}
+  m_Sprite: {fileID: -421902703, guid: 52afffe8cf9a522418b56b8cb252293c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3486,7 +3486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7634474561715692711
 RectTransform:
   m_ObjectHideFlags: 0
