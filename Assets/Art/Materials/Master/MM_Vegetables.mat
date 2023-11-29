@@ -51,15 +51,23 @@ Material:
     m_Ints: []
     m_Floats:
     - _AO_Strength: 0.5
+    - _Emission_Contrast: 0
+    - _Emission_Threshold: 0
+    - _Pulse_Rate: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.2
     - _Stregnth: 0.01
+    - _USE_EMISSION: 0
+    - _Wobble_Stregnth: 0.004
     m_Colors:
     - _AO_Color: {r: 0.027450979, g: 0.07312735, b: 0.14117648, a: 0}
+    - _Emission_Color: {r: 0.5144675, g: 1, b: 0, a: 0}
+    - _Pulse_Range: {r: 0.5, g: 1, b: 0, a: 0}
     - _Speed: {r: 0.5, g: 0, b: 0, a: 0}
     - _Tint: {r: 0.27593094, g: 0.624, b: 0.119183965, a: 0}
     - _Vector3: {r: 0, g: 1, b: 0, a: 0}
+    - _Wobble_Speed: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1011406531738935690
 MonoBehaviour:
