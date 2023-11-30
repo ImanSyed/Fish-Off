@@ -184,9 +184,9 @@ public class FPSController : MonoBehaviour
     {
         RaycastHit hit;
 
-        if(Physics.Raycast(transform.position, cam.transform.forward, out hit, shrinkRayDistance, hitLayerMask))
+        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, shrinkRayDistance, hitLayerMask))
         {
-            fishTarget = hit.transform.parent.GetComponent<FishBehaviour>();
+            fishTarget = hit.transform.GetComponent<FishBehaviour>();
             fishTarget.ShrinkMe(shrinkRayMagnitude);
             Debug.Log(fishTarget.gameObject.name);
         }
@@ -196,9 +196,9 @@ public class FPSController : MonoBehaviour
     {
         RaycastHit hit;
 
-        if(Physics.Raycast(transform.position, cam.transform.forward, out hit, suctionRayDistance, hitLayerMask))
+        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, suctionRayDistance, hitLayerMask))
         {
-            fishTarget = hit.transform.parent.GetComponent<FishBehaviour>();
+            fishTarget = hit.transform.GetComponent<FishBehaviour>();
             fishTarget.SuckMe(suctionRayMagnitude);
             Debug.Log(fishTarget.gameObject.name);
         }
@@ -218,7 +218,7 @@ public class FPSController : MonoBehaviour
     {
         if(other.collider.CompareTag("Fish"))
         {
-            if(other.gameObject.GetComponent<FishBehaviour>().myStats.canBeCaught)
+            if(other.transform.parent.gameObject.GetComponent<FishBehaviour>().myStats.canBeCaught)
             {
                 fishCollection.Add(other.gameObject.GetComponent<FishBehaviour>().myStats.fishType, 1);
             }

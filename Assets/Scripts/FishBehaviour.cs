@@ -28,6 +28,7 @@ public class FishBehaviour : MonoBehaviour
     private float wanderTime, chaseTime, fleeTime;
     private Transform preyTarget, predatorTarget;
     private FPSController playerController;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,8 @@ public class FishBehaviour : MonoBehaviour
         origin = transform.position;
         wayPoint = origin;
         renderPoint = sideSprite.transform;
+        
+        rb = GetComponent<Rigidbody>();
 
         animator = GetComponentInChildren<Animator>();
 
@@ -212,7 +215,7 @@ public class FishBehaviour : MonoBehaviour
 
         transform.rotation = Quaternion.LookRotation(newDirection);
 
-        transform.position += transform.forward * myStats.wanderSpeed * Time.deltaTime;
+        rb.velocity = transform.forward * myStats.wanderSpeed * Time.deltaTime;
 
         wanderTime += Time.deltaTime;
 
@@ -238,7 +241,7 @@ public class FishBehaviour : MonoBehaviour
 
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, preyTarget.position - transform.position, myStats.turnRate * turnRateModifier, 0);
         transform.rotation = Quaternion.LookRotation(newDirection);
-        transform.position += transform.forward * myStats.chaseSpeed * Time.deltaTime;
+        rb.velocity = transform.forward * myStats.chaseSpeed * Time.deltaTime;
 
         chaseTime += Time.deltaTime;
 
@@ -261,7 +264,7 @@ public class FishBehaviour : MonoBehaviour
 
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, transform.position - predatorTarget.position, myStats.turnRate * turnRateModifier, 0);
         transform.rotation = Quaternion.LookRotation(newDirection);
-        transform.position += transform.forward * myStats.fleeSpeed * Time.deltaTime;
+        rb.velocity = transform.forward * myStats.fleeSpeed * Time.deltaTime;
 
         fleeTime += Time.deltaTime;
 
