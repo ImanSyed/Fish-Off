@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Smoke
+  m_Name: M_Dust
   m_Shader: {fileID: -6465566751694194690, guid: 16c9a7f8dcfcc4e4db0aaa4796a04c1e,
     type: 3}
   m_Parent: {fileID: 2100000, guid: 5cba83302804cb84d9d4a70182acc84c, type: 2}
@@ -41,6 +41,6 @@ Material:
     m_Floats:
     - _Speed: 0.7
     m_Colors:
-    - _ColorA: {r: 0.08235294, g: 0.09490191, b: 0.09803922, a: 0}
-    - _ColorB: {r: 0.20784314, g: 0.17706591, b: 0.16470589, a: 0}
+    - _ColorA: {r: 0.07058824, g: 0.083115384, b: 0.09803922, a: 0}
+    - _ColorB: {r: 0.20784314, g: 0.1531237, b: 0.13260391, a: 0}
   m_BuildTextureStacks: []
