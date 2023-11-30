@@ -36,7 +36,7 @@ public class FPSController : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 15;
+        Application.targetFrameRate = 24;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         cam = Camera.main;
@@ -188,6 +188,7 @@ public class FPSController : MonoBehaviour
         {
             fishTarget = hit.transform.parent.GetComponent<FishBehaviour>();
             fishTarget.ShrinkMe(shrinkRayMagnitude);
+            Debug.Log(fishTarget.gameObject.name);
         }
     }
 
@@ -199,6 +200,7 @@ public class FPSController : MonoBehaviour
         {
             fishTarget = hit.transform.parent.GetComponent<FishBehaviour>();
             fishTarget.SuckMe(suctionRayMagnitude);
+            Debug.Log(fishTarget.gameObject.name);
         }
     }
 
@@ -214,9 +216,12 @@ public class FPSController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) 
     {
-        if(other.collider.CompareTag("Fish") && other.gameObject.GetComponent<FishBehaviour>().myStats.canBeCaught)
+        if(other.collider.CompareTag("Fish"))
         {
-            fishCollection.Add(other.gameObject.GetComponent<FishBehaviour>().myStats.fishType, 1);
+            if(other.gameObject.GetComponent<FishBehaviour>().myStats.canBeCaught)
+            {
+                fishCollection.Add(other.gameObject.GetComponent<FishBehaviour>().myStats.fishType, 1);
+            }
         }
     }
 }
