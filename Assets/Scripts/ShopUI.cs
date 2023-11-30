@@ -15,6 +15,7 @@ public class ShopUI : MonoBehaviour
     [SerializeField] Button speedButton, o2Button;
     [SerializeField] TMPro.TMP_Text speedPopupText, o2PopupText;
 
+    Animator animator;
     int speedUpgradeCounter, o2UpgradeCounter;
     FPSController playerController;
     bool canStart;
@@ -26,6 +27,8 @@ public class ShopUI : MonoBehaviour
 
         o2PopupText.text = o2UpgradePrices[o2UpgradeCounter].ToString();
         speedPopupText.text = speedUpgradePrices[speedUpgradeCounter].ToString();
+
+        animator = GetComponent<Animator>();
 
     }
     
@@ -126,6 +129,14 @@ public class ShopUI : MonoBehaviour
     public void MainMenuAnimation()
     {
         canStart = true;
-        FindObjectOfType<Customer>().GetCustomer();
+    }
+
+    public void StartGame()
+    {
+        if(canStart)
+        {
+            FindObjectOfType<Customer>().GetCustomer();
+            animator.Play("Start", 0);
+        }
     }
 }

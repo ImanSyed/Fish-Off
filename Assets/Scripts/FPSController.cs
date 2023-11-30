@@ -188,7 +188,6 @@ public class FPSController : MonoBehaviour
         {
             fishTarget = hit.transform.GetComponent<FishBehaviour>();
             fishTarget.ShrinkMe(shrinkRayMagnitude);
-            Debug.Log(fishTarget.gameObject.name);
         }
     }
 
@@ -200,7 +199,6 @@ public class FPSController : MonoBehaviour
         {
             fishTarget = hit.transform.GetComponent<FishBehaviour>();
             fishTarget.SuckMe(suctionRayMagnitude);
-            Debug.Log(fishTarget.gameObject.name);
         }
     }
 
