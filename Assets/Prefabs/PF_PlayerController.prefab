@@ -182,8 +182,8 @@ MonoBehaviour:
   diveDistance: 55
   canMove: 1
   canShoot: 1
-  shrinkRayDistance: 15
-  suctionRayDistance: 15
+  shrinkRayDistance: 200
+  suctionRayDistance: 200
   shrinkRayMagnitude: 0.2
   suctionRayMagnitude: 10
   shrinkVFX: {fileID: 689732920052797539}
