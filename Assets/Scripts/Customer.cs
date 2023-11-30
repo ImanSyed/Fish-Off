@@ -11,6 +11,8 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] List<Bounty> tier1Bounties, tier2Bounties, tier3Bounties;
     Bounty currentBounty;
     [SerializeField] GameObject bountyPopup;
+    [SerializeField] Image bountyImage;
+
     short currentTier;
     bool canClick;
     FPSController playerController;
@@ -92,5 +94,6 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             break;
         }
         bodySprite.sprite = bodySprites[Random.Range(0, bodySprites.Length)];
+        bountyImage.sprite = currentBounty.sprite;
     }
 }

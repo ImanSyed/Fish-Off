@@ -36,7 +36,7 @@ public class FPSController : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 24;
+        //Application.targetFrameRate = 24;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         cam = Camera.main;
@@ -66,6 +66,11 @@ public class FPSController : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         if (canMove)
         {
             MoveInput();
@@ -210,7 +215,6 @@ public class FPSController : MonoBehaviour
             //GAME OVER
         }
     }
-
 
     private void OnCollisionEnter(Collision other) 
     {
