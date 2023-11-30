@@ -79,7 +79,7 @@ public class FPSController : MonoBehaviour
                 if(!shrinkVFX.activeInHierarchy)
                 {
                     shrinkVFX.SetActive(true);
-                    shrinkVFX.SetActive(true);
+                    suctionVFX.SetActive(false);
                 }
                 Shrink();
             }
@@ -89,9 +89,18 @@ public class FPSController : MonoBehaviour
                 {
                     shrinkVFX.SetActive(false);
                     suctionVFX.SetActive(true);
-                    
                 }
                 Suck();
+            }
+
+            if(!Input.GetMouseButton(1) && shrinkVFX.activeInHierarchy)
+            {
+                shrinkVFX.SetActive(false);
+            }
+
+            if(!Input.GetMouseButton(0) && suctionVFX.activeInHierarchy)
+            {
+                suctionVFX.SetActive(false);
             }
 
         }
