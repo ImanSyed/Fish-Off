@@ -17,6 +17,7 @@ public class ShopUI : MonoBehaviour
 
     int speedUpgradeCounter, o2UpgradeCounter;
     FPSController playerController;
+    bool canStart;
 
     void Start()
     {
@@ -27,7 +28,7 @@ public class ShopUI : MonoBehaviour
         speedPopupText.text = speedUpgradePrices[speedUpgradeCounter].ToString();
 
     }
-
+    
     public void ShowShop(bool b)
     {
         shopFront.SetActive(b);
@@ -124,6 +125,7 @@ public class ShopUI : MonoBehaviour
 
     public void MainMenuAnimation()
     {
+        canStart = true;
         FindObjectOfType<Customer>().GetCustomer();
     }
 }
