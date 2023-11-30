@@ -17,6 +17,7 @@ public class FPSController : MonoBehaviour
     [HideInInspector] public bool canShoot = true;
     [SerializeField] private float shrinkRayDistance, suctionRayDistance;
     [SerializeField] private float shrinkRayMagnitude, suctionRayMagnitude;
+    [SerializeField] private GameObject shrinkVFX, suctionVFX;
     [SerializeField] private LayerMask hitLayerMask;
     private FishBehaviour fishTarget;
     public Light flashlight;
@@ -75,12 +76,24 @@ public class FPSController : MonoBehaviour
         {  
             if(Input.GetMouseButton(1))
             {
+                if(!shrinkVFX.activeInHierarchy)
+                {
+                    shrinkVFX.SetActive(true);
+                    shrinkVFX.SetActive(true);
+                }
                 Shrink();
             }
             else if(Input.GetMouseButton(0))
             {
+                if(!shrinkVFX.activeInHierarchy)
+                {
+                    shrinkVFX.SetActive(false);
+                    suctionVFX.SetActive(true);
+                    
+                }
                 Suck();
             }
+
         }
 
         if(Input.GetKeyDown(KeyCode.F))

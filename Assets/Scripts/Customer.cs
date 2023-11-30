@@ -2,11 +2,12 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    [SerializeField] SpriteRenderer headSprite, bodySprite;
-    [SerializeField] Sprite[] headSprites, bodySprites;
+    [SerializeField] Image bodySprite;
+    [SerializeField] Sprite[] bodySprites;
     [SerializeField] List<Bounty> tier1Bounties, tier2Bounties, tier3Bounties;
     Bounty currentBounty;
     [SerializeField] GameObject bountyPopup;
@@ -76,7 +77,6 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void ChangeForm()
     {
-        /*
         switch(currentTier)
         {
             case 1:
@@ -91,8 +91,6 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 currentBounty = tier3Bounties[Random.Range(0, tier1Bounties.Count)];
             break;
         }
-        headSprite.sprite = headSprites[Random.Range(0, headSprites.Length)];
         bodySprite.sprite = bodySprites[Random.Range(0, bodySprites.Length)];
-        */
     }
 }
