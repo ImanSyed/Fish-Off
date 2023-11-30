@@ -121,4 +121,9 @@ public class ShopUI : MonoBehaviour
         playerController.maxO2 += o2IncreaseValue;
         playerController.runningSpeed += o2IncreaseValue;
     }
+
+    public void MainMenuAnimation()
+    {
+        FindObjectOfType<Customer>().GetCustomer();
+    }
 }

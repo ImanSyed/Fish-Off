@@ -14,13 +14,12 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     bool canClick;
     FPSController playerController;
     ShopUI shopUI;
-    Animator animator;
+    [SerializeField] Animator animator;
 
     private void Start() 
     {
         shopUI = FindObjectOfType<ShopUI>();
         playerController = FindObjectOfType<FPSController>();    
-        animator = GetComponent<Animator>();
     }
 
     public void OnPointerEnter(PointerEventData pointerEventData)
@@ -70,8 +69,14 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
+    public void GetCustomer()
+    {
+        animator.Play("Empty", 0);
+    }
+
     public void ChangeForm()
     {
+        /*
         switch(currentTier)
         {
             case 1:
@@ -88,5 +93,6 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         headSprite.sprite = headSprites[Random.Range(0, headSprites.Length)];
         bodySprite.sprite = bodySprites[Random.Range(0, bodySprites.Length)];
+        */
     }
 }
