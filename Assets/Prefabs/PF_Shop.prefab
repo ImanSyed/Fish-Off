@@ -161,6 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2623012197628214694}
+  - component: {fileID: 7642966348804388876}
   m_Layer: 5
   m_Name: TitleScreen
   m_TagString: Untagged
@@ -196,6 +197,27 @@ RectTransform:
   m_AnchoredPosition: {x: -87.17967, y: -93.4716}
   m_SizeDelta: {x: 1162.8154, y: 1115.5284}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &7642966348804388876
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368382011873763841}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a9ea906abc482b3408bbfd014a48ada8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &427035591387246492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5865,9 +5887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dafd53077519704888c00f24f407a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headSprite: {fileID: 0}
   bodySprite: {fileID: 0}
-  headSprites: []
   bodySprites: []
   tier1Bounties:
   - {fileID: 11400000, guid: 5caab95b1e025e44faeeae3ed95bcbcd, type: 2}
