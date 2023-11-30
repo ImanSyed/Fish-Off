@@ -531,6 +531,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 3727992923455357186, guid: d3118c2ae40c9d74086eab7efb3a53f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7420928608940068563, guid: d3118c2ae40c9d74086eab7efb3a53f3,
         type: 3}
       propertyPath: m_Pivot.x

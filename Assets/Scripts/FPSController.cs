@@ -24,6 +24,7 @@ public class FPSController : MonoBehaviour
 
     public float maxO2;
     [SerializeField] float o2DecreaseRate;
+    [SerializeField] TMPro.TMP_Text o2Text;
     private float currentO2;
 
     private Vector3 moveDirection = Vector3.zero;
@@ -119,6 +120,8 @@ public class FPSController : MonoBehaviour
     void MoveInput()
     {
         currentO2 -= o2DecreaseRate;
+        o2Text.text = (currentO2 * 100 / maxO2).ToString() + "%";
+
         if(currentO2 <= 0)
         {
             //GAME OVER
@@ -183,6 +186,7 @@ public class FPSController : MonoBehaviour
     public void RefreshO2()
     {
         currentO2 = maxO2;
+        o2Text.text = (currentO2 * 100 / maxO2).ToString() + "%";
     }
 
     void Shrink()
@@ -210,6 +214,8 @@ public class FPSController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentO2 -= damage;
+        o2Text.text = (currentO2 * 100 / maxO2).ToString() + "%";
+
         if(currentO2 <= 0)
         {
             //GAME OVER
