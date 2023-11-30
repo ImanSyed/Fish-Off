@@ -45,6 +45,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 4225eaccfab16864b885916d7f57a7bd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_1ec85ce7ccd74ba8aa870e36f9713001_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: cc16569afa3c26b4881502b9c43202e3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_2cb2e00f9bd04acd9607b92c0c408c95_Texture_1_Texture2D:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -81,6 +85,7 @@ Material:
     - _Use_G: 1
     - _Use_R: 0
     m_Colors:
+    - _CrackTile: {r: 1, g: 1, b: 0, a: 0}
     - _HTile: {r: 4, g: 4, b: 0, a: 0}
     - _Moss_Color: {r: 0.36402795, g: 0.482, b: 0.27976224, a: 0}
     - _NTIle: {r: 2, g: 2, b: 0, a: 0}
