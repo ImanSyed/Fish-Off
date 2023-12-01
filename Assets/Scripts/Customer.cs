@@ -14,6 +14,8 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] Image bountyImage;
 
     public int currentTier = 1;
+    [SerializeField] int tierIncreaseThreshold;
+    int tierIncreaseCounter;
     bool canClick;
     FPSController playerController;
     ShopUI shopUI;
@@ -54,7 +56,17 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     void BountyComplete()
     {
         animator.Play("Correct", 0);
-        shopUI.ChangeMoney(currentBounty.reward);
+        int rewardValue = currentBounty.reward + Random.Range(-currentBounty.rewardRandomiser, currentBounty.rewardRandomiser + 1);
+        shopUI.ChangeMoney(rewardValue);
+
+        tierIncreaseCounter += rewardValue;
+
+        if(tierIncreaseCounter >= tierIncreaseThreshold)
+        {
+            currentTier++;
+            tierIncreaseCounter = 0;
+        }
+
         canClick = false;
 
         switch(currentTier)
