@@ -41,7 +41,7 @@ PrefabInstance:
     - target: {fileID: 2120696564651519357, guid: 6fa2a5718c423864cb127f9aa49f2ac4,
         type: 3}
       propertyPath: m_Name
-      value: PF_RockBig_01
+      value: PF_RockBig_01S
       objectReference: {fileID: 0}
     - target: {fileID: 7476606618731972588, guid: 6fa2a5718c423864cb127f9aa49f2ac4,
         type: 3}
@@ -185,7 +185,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 651b89d27be3755419dcdc7417060dd0, type: 2}
+      objectReference: {fileID: 2100000, guid: d3178c5bed84d2e41a46312363cdc601, type: 2}
     - target: {fileID: 919132149155446097, guid: 6aeb27a62a4cbf74d8f40044c7ac5d0f,
         type: 3}
       propertyPath: m_Name
