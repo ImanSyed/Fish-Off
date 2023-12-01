@@ -309,10 +309,10 @@ public class FishBehaviour : MonoBehaviour
             frontSprite.enabled = true;
             sideSprite.enabled = false;
             backSprite.enabled = false;
-            if(sideCollider != frontCollider && !frontCollider.enabled)
+            if(sideCollider != null && sideCollider != frontCollider && !frontCollider.enabled)
             {
-                frontCollider.enabled = true;
                 sideCollider.enabled = false;
+                frontCollider.enabled = true;
             }
         }
         else if(angleToPlayer > 135 )
@@ -320,10 +320,10 @@ public class FishBehaviour : MonoBehaviour
             frontSprite.enabled = false;
             sideSprite.enabled = false;
             backSprite.enabled = true;
-            if(sideCollider != frontCollider && !frontCollider.enabled)
+            if(sideCollider != null && sideCollider != frontCollider && !frontCollider.enabled)
             {
-                frontCollider.enabled = true;
                 sideCollider.enabled = false;
+                frontCollider.enabled = true;
             }
         }
         else
@@ -331,7 +331,7 @@ public class FishBehaviour : MonoBehaviour
             frontSprite.enabled = false;
             sideSprite.enabled = true;
             backSprite.enabled = false;
-            if(sideCollider != frontCollider && frontCollider.enabled)
+            if(sideCollider != null && sideCollider != frontCollider && frontCollider.enabled)
             {
                 frontCollider.enabled = false;
                 sideCollider.enabled = true;
