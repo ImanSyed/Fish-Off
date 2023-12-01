@@ -14,12 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishType: Trapastavoid
   predatorHierarchy: 0
-  frontSprite: {fileID: 728157884, guid: c7207611166beb148aac355eed7b08fe, type: 3}
-  backSprite: {fileID: 728157884, guid: c7207611166beb148aac355eed7b08fe, type: 3}
-  sideSprite: {fileID: 728157884, guid: c7207611166beb148aac355eed7b08fe, type: 3}
   onDetectBehaviour: Chase
-  onAttackedBehaviour: 
-  wanderSpeed: 26.9
+  onAttackedBehaviour: Chase
+  wanderSpeed: 30
   fleeSpeed: 3.66
   chaseSpeed: 4.63
   turnRate: 3
@@ -28,7 +25,10 @@ MonoBehaviour:
   wanderSharpTurns: 0
   fleeSharpTurns: 0
   chaseSharpTurns: 0
-  minimumShrinkSize: 0.1
-  attackDamage: 0
+  minimumShrinkSize: 0.25
+  attackDamage: 40
   childFish: {fileID: 11400000, guid: 8cbaff981c2a89a4c9cea2f2ee296f09, type: 2}
   canBeCaught: 0
+  swimSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  animatorController: {fileID: 0}

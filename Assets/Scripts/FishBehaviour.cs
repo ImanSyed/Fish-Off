@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FishBehaviour : MonoBehaviour
@@ -70,10 +68,12 @@ public class FishBehaviour : MonoBehaviour
                 SetBehaviourState(BehaviourState.chasing);
                 break;
 
-                case "Flee": SetBehaviourState(BehaviourState.fleeing);
+                case "Flee": 
+                SetBehaviourState(BehaviourState.fleeing);
                 break;
 
-                default: Debug.Log("Incorrect detection behaviour");
+                default: 
+                Debug.Log("Incorrect detection behaviour");
                 break;
             }
         }
@@ -200,7 +200,6 @@ public class FishBehaviour : MonoBehaviour
 
         Vector3 targetDirection = wayPoint - transform.position;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, myStats.turnRate * turnRateModifier, 0);
-
         
         int layermask = 1 << 2;
         layermask = ~layermask;
@@ -357,8 +356,19 @@ public class FishBehaviour : MonoBehaviour
 
     public void ShrinkMe(float magnitude)
     {
+        if(myStats.onAttackedBehaviour == "Chase")
+        {
+            SetBehaviourState(BehaviourState.chasing);
+        }
+        else if(myStats.onAttackedBehaviour == "Flee")
+        {
+            SetBehaviourState(BehaviourState.fleeing);
+        }
         if(myRenderersTransform.localScale.x > myStats.minimumShrinkSize)
         {
+            myStats.wanderSpeed -= 1 * magnitude * Time.deltaTime;
+            myStats.fleeSpeed -= 1 * magnitude * Time.deltaTime;
+            myStats.chaseSpeed -= 1 * magnitude * Time.deltaTime;
             myRenderersTransform.localScale -= Vector3.one * magnitude * Time.deltaTime;
             myColliderTransform.localScale = myRenderersTransform.localScale;
         }

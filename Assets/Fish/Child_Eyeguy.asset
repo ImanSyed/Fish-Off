@@ -14,21 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishType: Jellyfish
   predatorHierarchy: 0
-  frontSprite: {fileID: -1537963632, guid: c7207611166beb148aac355eed7b08fe, type: 3}
-  backSprite: {fileID: -1537963632, guid: c7207611166beb148aac355eed7b08fe, type: 3}
-  sideSprite: {fileID: -1537963632, guid: c7207611166beb148aac355eed7b08fe, type: 3}
-  onDetectBehaviour: Chase
-  onAttackedBehaviour: 
-  wanderSpeed: 26.9
-  fleeSpeed: 3.66
-  chaseSpeed: 4.63
+  onDetectBehaviour: Flee
+  onAttackedBehaviour: Flee
+  wanderSpeed: 5
+  fleeSpeed: 7.5
+  chaseSpeed: 0
   turnRate: 3
   fleeDuration: 0
-  chaseDuration: 10
+  chaseDuration: 0
   wanderSharpTurns: 0
   fleeSharpTurns: 0
   chaseSharpTurns: 0
-  minimumShrinkSize: 0.1
+  minimumShrinkSize: 1
   attackDamage: 0
-  childFish: {fileID: 11400000, guid: d10f038f2db83f14b87caf671c105c46, type: 2}
-  canBeCaught: 0
+  childFish: {fileID: 0}
+  canBeCaught: 1
+  swimSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  animatorController: {fileID: 0}

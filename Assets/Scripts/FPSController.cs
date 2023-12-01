@@ -50,7 +50,7 @@ public class FPSController : MonoBehaviour
     private void InitialiseFishCollection()
     {
         fishCollection.Add("Chin-Chin", 0);
-        fishCollection.Add("Dst_Byster", 0);
+        fishCollection.Add("Dst-Byster", 0);
         fishCollection.Add("Eyeguy", 0);
         fishCollection.Add("Fishman", 0);
         fishCollection.Add("Halihustur", 0);

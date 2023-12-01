@@ -14,21 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishType: Shuk-tukhu
   predatorHierarchy: 0
-  frontSprite: {fileID: 21300000, guid: 98f03c9d06268084db9329667846f216, type: 3}
-  backSprite: {fileID: 21300000, guid: 98f03c9d06268084db9329667846f216, type: 3}
-  sideSprite: {fileID: 21300000, guid: 6b864bc9293a8b54488227770042ab67, type: 3}
   onDetectBehaviour: Chase
-  onAttackedBehaviour: 
-  wanderSpeed: 26.9
-  fleeSpeed: 3.66
-  chaseSpeed: 4.63
+  onAttackedBehaviour: Chase
+  wanderSpeed: 40
+  fleeSpeed: 4
+  chaseSpeed: 5
   turnRate: 3
   fleeDuration: 0
   chaseDuration: 10
   wanderSharpTurns: 0
   fleeSharpTurns: 0
   chaseSharpTurns: 0
-  minimumShrinkSize: 0.1
-  attackDamage: 0
+  minimumShrinkSize: 0.25
+  attackDamage: 100
   childFish: {fileID: 11400000, guid: 61de020c5402dd34a8ce114357737185, type: 2}
   canBeCaught: 0
+  swimSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  animatorController: {fileID: 0}
