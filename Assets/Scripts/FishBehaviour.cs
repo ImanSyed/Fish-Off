@@ -70,10 +70,12 @@ public class FishBehaviour : MonoBehaviour
                 SetBehaviourState(BehaviourState.chasing);
                 break;
 
-                case "Flee": SetBehaviourState(BehaviourState.fleeing);
+                case "Flee": 
+                SetBehaviourState(BehaviourState.fleeing);
                 break;
 
-                default: Debug.Log("Incorrect detection behaviour");
+                default: 
+                Debug.Log("Incorrect detection behaviour");
                 break;
             }
         }

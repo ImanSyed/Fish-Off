@@ -25,7 +25,7 @@ MonoBehaviour:
   wanderSharpTurns: 0
   fleeSharpTurns: 0
   chaseSharpTurns: 0
-  minimumShrinkSize: 0.1
+  minimumShrinkSize: 0.25
   attackDamage: 0
   childFish: {fileID: 0}
   canBeCaught: 0
