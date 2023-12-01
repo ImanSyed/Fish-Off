@@ -15,10 +15,10 @@ MonoBehaviour:
   fishType: Wohl-Oth
   predatorHierarchy: 0
   onDetectBehaviour: Chase
-  onAttackedBehaviour: 
-  wanderSpeed: 26.9
-  fleeSpeed: 3.66
-  chaseSpeed: 4.63
+  onAttackedBehaviour: Chase
+  wanderSpeed: 28
+  fleeSpeed: 4
+  chaseSpeed: 4.5
   turnRate: 3
   fleeDuration: 0
   chaseDuration: 10
@@ -26,7 +26,7 @@ MonoBehaviour:
   fleeSharpTurns: 0
   chaseSharpTurns: 0
   minimumShrinkSize: 0.25
-  attackDamage: 0
+  attackDamage: 80
   childFish: {fileID: 11400000, guid: 7bf36c080e8e7d246892dc85dc686cb8, type: 2}
   canBeCaught: 0
   swimSound: {fileID: 0}

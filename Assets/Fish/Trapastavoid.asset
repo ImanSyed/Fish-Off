@@ -15,8 +15,8 @@ MonoBehaviour:
   fishType: Trapastavoid
   predatorHierarchy: 0
   onDetectBehaviour: Chase
-  onAttackedBehaviour: 
-  wanderSpeed: 26.9
+  onAttackedBehaviour: Chase
+  wanderSpeed: 30
   fleeSpeed: 3.66
   chaseSpeed: 4.63
   turnRate: 3
@@ -26,7 +26,7 @@ MonoBehaviour:
   fleeSharpTurns: 0
   chaseSharpTurns: 0
   minimumShrinkSize: 0.25
-  attackDamage: 0
+  attackDamage: 40
   childFish: {fileID: 11400000, guid: 8cbaff981c2a89a4c9cea2f2ee296f09, type: 2}
   canBeCaught: 0
   swimSound: {fileID: 0}

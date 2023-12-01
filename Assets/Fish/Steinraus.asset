@@ -15,10 +15,10 @@ MonoBehaviour:
   fishType: Steinraus
   predatorHierarchy: 0
   onDetectBehaviour: Chase
-  onAttackedBehaviour: 
-  wanderSpeed: 26.9
-  fleeSpeed: 3.66
-  chaseSpeed: 4.63
+  onAttackedBehaviour: Chase
+  wanderSpeed: 24
+  fleeSpeed: 4
+  chaseSpeed: 3
   turnRate: 3
   fleeDuration: 0
   chaseDuration: 10
@@ -26,7 +26,7 @@ MonoBehaviour:
   fleeSharpTurns: 0
   chaseSharpTurns: 0
   minimumShrinkSize: 0.25
-  attackDamage: 0
+  attackDamage: 20
   childFish: {fileID: 11400000, guid: 08b6546de4534fd4cbc2dd7ee08d3e15, type: 2}
   canBeCaught: 0
   swimSound: {fileID: 0}

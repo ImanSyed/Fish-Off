@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishType: Dst-Byster
   predatorHierarchy: 0
-  onDetectBehaviour: Chase
-  onAttackedBehaviour: 
-  wanderSpeed: 26.9
-  fleeSpeed: 3.66
-  chaseSpeed: 4.63
+  onDetectBehaviour: Flee
+  onAttackedBehaviour: Flee
+  wanderSpeed: 18
+  fleeSpeed: 20
+  chaseSpeed: 0
   turnRate: 3
   fleeDuration: 0
-  chaseDuration: 10
+  chaseDuration: 0
   wanderSharpTurns: 0
   fleeSharpTurns: 0
   chaseSharpTurns: 0

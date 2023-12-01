@@ -28,7 +28,7 @@ MonoBehaviour:
   minimumShrinkSize: 1
   attackDamage: 0
   childFish: {fileID: 0}
-  canBeCaught: 0
+  canBeCaught: 1
   swimSound: {fileID: 0}
   attackSound: {fileID: 0}
   animatorController: {fileID: 0}

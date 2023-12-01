@@ -15,10 +15,10 @@ MonoBehaviour:
   fishType: Shuk-tukhu
   predatorHierarchy: 0
   onDetectBehaviour: Chase
-  onAttackedBehaviour: 
-  wanderSpeed: 26.9
-  fleeSpeed: 3.66
-  chaseSpeed: 4.63
+  onAttackedBehaviour: Chase
+  wanderSpeed: 40
+  fleeSpeed: 4
+  chaseSpeed: 5
   turnRate: 3
   fleeDuration: 0
   chaseDuration: 10
@@ -26,7 +26,7 @@ MonoBehaviour:
   fleeSharpTurns: 0
   chaseSharpTurns: 0
   minimumShrinkSize: 0.25
-  attackDamage: 0
+  attackDamage: 100
   childFish: {fileID: 11400000, guid: 61de020c5402dd34a8ce114357737185, type: 2}
   canBeCaught: 0
   swimSound: {fileID: 0}

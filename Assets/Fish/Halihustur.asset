@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishType: Halihustur
   predatorHierarchy: 0
-  onDetectBehaviour: Chase
-  onAttackedBehaviour: 
-  wanderSpeed: 26.9
-  fleeSpeed: 3.66
-  chaseSpeed: 4.63
+  onDetectBehaviour: Flee
+  onAttackedBehaviour: Flee
+  wanderSpeed: 20
+  fleeSpeed: 80
+  chaseSpeed: 0
   turnRate: 3
   fleeDuration: 0
-  chaseDuration: 10
-  wanderSharpTurns: 0
-  fleeSharpTurns: 0
+  chaseDuration: 0
+  wanderSharpTurns: 1
+  fleeSharpTurns: 1
   chaseSharpTurns: 0
   minimumShrinkSize: 0.25
   attackDamage: 0
