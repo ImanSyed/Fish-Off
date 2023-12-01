@@ -287,7 +287,6 @@ public class FishBehaviour : MonoBehaviour
     {
         SetBehaviourState(BehaviourState.attacking);
         playerController.TakeDamage(myStats.attackDamage);
-        audioSource.PlayOneShot(myStats.attackSound);
     }
 
     public void GenerateWayPoint()
