@@ -393,8 +393,6 @@ public class FishBehaviour : MonoBehaviour
             sideSprite.sprite = myStats.sprite;
             backSprite.sprite = myStats.sprite;
             animator.enabled = false;
-            myRenderersTransform.localScale = Vector3.one;
-            myColliderTransform.localScale = Vector3.one;
         }
     }
 
