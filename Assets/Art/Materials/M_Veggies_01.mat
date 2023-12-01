@@ -51,4 +51,5 @@ Material:
     - _Emission_Color: {r: 2.6701574, g: 0, b: 1.5146691, a: 1}
     - _Pulse_Range: {r: 0, g: 1, b: 0, a: 0}
     - _Tint: {r: 0.4557227, g: 0.6265812, b: 0.7264151, a: 0}
+    - _Wobble_Speed: {r: 0.25, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

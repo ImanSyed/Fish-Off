@@ -25,6 +25,7 @@ public class FPSController : MonoBehaviour
     public float maxO2;
     [SerializeField] float o2DecreaseRate;
     [SerializeField] TMPro.TMP_Text o2Text;
+    [SerializeField] GameObject gameOverScreen;
     private float currentO2;
 
     private Vector3 moveDirection = Vector3.zero;
@@ -39,7 +40,7 @@ public class FPSController : MonoBehaviour
     {
         canMove = false;
         canShoot = false;
-        //Application.targetFrameRate = 24;
+        Application.targetFrameRate = 24;
         cam = Camera.main;
         shopUI = FindAnyObjectByType<ShopUI>();
         rb = GetComponent<Rigidbody>();
@@ -124,8 +125,7 @@ public class FPSController : MonoBehaviour
 
         if(currentO2 <= 0)
         {
-            //GAME OVER
-            return;
+            GameOver();
         }
 
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
@@ -225,7 +225,7 @@ public class FPSController : MonoBehaviour
 
         if(currentO2 <= 0)
         {
-            //GAME OVER
+            GameOver();
         }
     }
 
@@ -238,5 +238,11 @@ public class FPSController : MonoBehaviour
                 fishCollection.Add(other.gameObject.GetComponent<FishBehaviour>().myStats.fishType, 1);
             }
         }
+    }
+
+    void GameOver()
+    {
+        gameOverScreen.SetActive(true);
+        Destroy(gameObject);
     }
 }
