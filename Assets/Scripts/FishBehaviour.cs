@@ -29,6 +29,7 @@ public class FishBehaviour : MonoBehaviour
     private Transform preyTarget, predatorTarget;
     private FPSController playerController;
     private Rigidbody rb;
+    ShopUI shopUI;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,7 @@ public class FishBehaviour : MonoBehaviour
         myRenderersTransform = frontSprite.transform.parent;
 
         playerController = FindObjectOfType<FPSController>();
+        shopUI = FindAnyObjectByType<ShopUI>();
 
         audioSource = GetComponent<AudioSource>();
 
@@ -105,6 +107,11 @@ public class FishBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(shopUI.pauseGame)
+        {
+            return;
+        }
+
         RenderFish();
 
         switch(currentBehaviourState)

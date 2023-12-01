@@ -19,12 +19,15 @@ public class ShopUI : MonoBehaviour
     int speedUpgradeCounter, o2UpgradeCounter;
     FPSController playerController;
     bool canStart;
+    public bool pauseGame;
 
     void Start()
     {
+        pauseGame = true;
+
         playerController = FindObjectOfType<FPSController>();
         moneyText.text = money.ToString();
-
+                
         o2PopupText.text = o2UpgradePrices[o2UpgradeCounter].ToString();
         speedPopupText.text = speedUpgradePrices[speedUpgradeCounter].ToString();
 
@@ -35,7 +38,7 @@ public class ShopUI : MonoBehaviour
     public void ShowShop(bool b)
     {
         shopFront.SetActive(b);
-        
+        pauseGame = b;
         Cursor.visible = b;
         
         if(!b)
@@ -138,5 +141,10 @@ public class ShopUI : MonoBehaviour
             FindObjectOfType<Customer>().GetCustomer();
             animator.Play("Start", 0);
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

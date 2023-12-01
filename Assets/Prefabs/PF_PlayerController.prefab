@@ -328,8 +328,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   flashlight: {fileID: 447145124290822847}
-  maxO2: 1000
-  o2DecreaseRate: 0.05
+  maxO2: 100
+  o2DecreaseRate: 0.01
   o2Text: {fileID: 2496306490721106681}
 --- !u!1 &4435664621693033263
 GameObject:

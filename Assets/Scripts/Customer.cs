@@ -13,7 +13,7 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] GameObject bountyPopup;
     [SerializeField] Image bountyImage;
 
-    short currentTier;
+    public int currentTier = 1;
     bool canClick;
     FPSController playerController;
     ShopUI shopUI;
@@ -55,6 +55,7 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         animator.Play("Correct", 0);
         shopUI.ChangeMoney(currentBounty.reward);
+        canClick = false;
 
         switch(currentTier)
         {
@@ -95,5 +96,7 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         bodySprite.sprite = bodySprites[Random.Range(0, bodySprites.Length)];
         bountyImage.sprite = currentBounty.sprite;
+        canClick = true;
+
     }
 }

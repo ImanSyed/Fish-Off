@@ -531,11 +531,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_Shop
       objectReference: {fileID: 0}
-    - target: {fileID: 3727992923455357186, guid: d3118c2ae40c9d74086eab7efb3a53f3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7420928608940068563, guid: d3118c2ae40c9d74086eab7efb3a53f3,
         type: 3}
       propertyPath: m_Pivot.x
@@ -713,6 +708,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669113421616199219, guid: 4775d99fc0f2f1a41b22fb5905481850,
+        type: 3}
+      propertyPath: maxO2
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669113421616199219, guid: 4775d99fc0f2f1a41b22fb5905481850,
+        type: 3}
+      propertyPath: o2DecreaseRate
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

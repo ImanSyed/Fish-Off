@@ -37,9 +37,9 @@ public class FPSController : MonoBehaviour
 
     void Start()
     {
-        //Application.targetFrameRate = 24;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        canMove = false;
+        canShoot = false;
+        Application.targetFrameRate = 24;
         cam = Camera.main;
         shopUI = FindAnyObjectByType<ShopUI>();
         rb = GetComponent<Rigidbody>();
@@ -120,7 +120,7 @@ public class FPSController : MonoBehaviour
     void MoveInput()
     {
         currentO2 -= o2DecreaseRate;
-        o2Text.text = (currentO2 * 100 / maxO2).ToString() + "%";
+        o2Text.text = Mathf.CeilToInt(currentO2 * 100 / maxO2).ToString() + "%";
 
         if(currentO2 <= 0)
         {
@@ -145,6 +145,11 @@ public class FPSController : MonoBehaviour
 
     void FixedUpdate() 
     {
+        if(shopUI.pauseGame)
+        {
+            return;
+        }
+
         if(moveDirection != Vector3.zero && canMove)
         {
             rb.velocity = moveDirection * Time.deltaTime;
@@ -186,7 +191,7 @@ public class FPSController : MonoBehaviour
     public void RefreshO2()
     {
         currentO2 = maxO2;
-        o2Text.text = (currentO2 * 100 / maxO2).ToString() + "%";
+        o2Text.text = Mathf.CeilToInt(currentO2 * 100 / maxO2).ToString() + "%";
     }
 
     void Shrink()
@@ -214,7 +219,7 @@ public class FPSController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentO2 -= damage;
-        o2Text.text = (currentO2 * 100 / maxO2).ToString() + "%";
+        o2Text.text = Mathf.CeilToInt(currentO2 * 100 / maxO2).ToString() + "%";
 
         if(currentO2 <= 0)
         {
@@ -224,7 +229,7 @@ public class FPSController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) 
     {
-        if(other.collider.CompareTag("Fish"))
+        if(other.collider.CompareTag("Fish") && !shopUI.pauseGame)
         {
             if(other.transform.parent.gameObject.GetComponent<FishBehaviour>().myStats.canBeCaught)
             {
