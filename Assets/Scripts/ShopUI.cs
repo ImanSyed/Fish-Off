@@ -47,6 +47,7 @@ public class ShopUI : MonoBehaviour
         {
             playerController.Dive();
             Cursor.lockState = CursorLockMode.Locked;
+            playerController.RefreshO2();
         }
         else
         {
