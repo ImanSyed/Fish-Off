@@ -7,9 +7,9 @@ public class FishBehaviour : MonoBehaviour
     [SerializeField] private bool sharpTurns;
     [SerializeField] private SpriteRenderer frontSprite, sideSprite, backSprite;
     [SerializeField] private Transform myRenderersTransform, myColliderTransform;
+    [SerializeField] private Collider frontCollider, sideCollider;
     private Transform renderPoint;
     private Animator animator;
-    private AudioSource audioSource;
 
     public enum BehaviourState
     {
@@ -58,8 +58,6 @@ public class FishBehaviour : MonoBehaviour
 
         myRenderersTransform = frontSprite.transform.parent;
 
-        audioSource = GetComponent<AudioSource>();
-
     }
 
     /// <summary>
@@ -101,7 +99,6 @@ public class FishBehaviour : MonoBehaviour
 
     void Update()
     {
-
         if(shopUI.pauseGame)
         {
             return;
@@ -114,7 +111,6 @@ public class FishBehaviour : MonoBehaviour
         }
 
         RenderFish();
-
 
         switch(currentBehaviourState)
         {
@@ -313,19 +309,33 @@ public class FishBehaviour : MonoBehaviour
             frontSprite.enabled = true;
             sideSprite.enabled = false;
             backSprite.enabled = false;
+            if(sideCollider != frontCollider && !frontCollider.enabled)
+            {
+                frontCollider.enabled = true;
+                sideCollider.enabled = false;
+            }
         }
         else if(angleToPlayer > 135 )
         {
-
             frontSprite.enabled = false;
             sideSprite.enabled = false;
             backSprite.enabled = true;
+            if(sideCollider != frontCollider && !frontCollider.enabled)
+            {
+                frontCollider.enabled = true;
+                sideCollider.enabled = false;
+            }
         }
         else
         {
             frontSprite.enabled = false;
             sideSprite.enabled = true;
             backSprite.enabled = false;
+            if(sideCollider != frontCollider && frontCollider.enabled)
+            {
+                frontCollider.enabled = false;
+                sideCollider.enabled = true;
+            }
             
             if(AngleDir(transform.forward.normalized, playerDirection, Vector3.up))
             {
