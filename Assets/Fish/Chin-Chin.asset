@@ -13,15 +13,14 @@ MonoBehaviour:
   m_Name: Chin-Chin
   m_EditorClassIdentifier: 
   fishType: Chin-Chin
-  predatorHierarchy: 0
-  onDetectBehaviour: Chase
-  onAttackedBehaviour: 
-  wanderSpeed: 26.9
-  fleeSpeed: 3.66
-  chaseSpeed: 4.63
+  onDetectBehaviour: Flee
+  onAttackedBehaviour: Flee
+  wanderSpeed: 666
+  fleeSpeed: 9001
+  chaseSpeed: 0
   turnRate: 3
   fleeDuration: 0
-  chaseDuration: 10
+  chaseDuration: 0
   wanderSharpTurns: 0
   fleeSharpTurns: 0
   chaseSharpTurns: 0
@@ -29,6 +28,4 @@ MonoBehaviour:
   attackDamage: 0
   childFish: {fileID: 0}
   canBeCaught: 0
-  swimSound: {fileID: 0}
-  attackSound: {fileID: 0}
-  animatorController: {fileID: 0}
+  sprite: {fileID: 0}
