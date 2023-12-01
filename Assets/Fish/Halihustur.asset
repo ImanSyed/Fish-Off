@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Halihustur
   m_EditorClassIdentifier: 
   fishType: Halihustur
-  predatorHierarchy: 0
   onDetectBehaviour: Flee
   onAttackedBehaviour: Flee
-  wanderSpeed: 20
-  fleeSpeed: 80
+  wanderSpeed: 1000
+  fleeSpeed: 1800
   chaseSpeed: 0
   turnRate: 3
   fleeDuration: 0
@@ -31,4 +30,4 @@ MonoBehaviour:
   canBeCaught: 0
   swimSound: {fileID: 0}
   attackSound: {fileID: 0}
-  animatorController: {fileID: 0}
+  sprite: {fileID: 0}

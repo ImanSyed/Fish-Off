@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Fishman
   m_EditorClassIdentifier: 
   fishType: Fishman
-  predatorHierarchy: 0
   onDetectBehaviour: Chase
   onAttackedBehaviour: Chase
-  wanderSpeed: 30
-  fleeSpeed: 6
-  chaseSpeed: 6
+  wanderSpeed: 860
+  fleeSpeed: 1000
+  chaseSpeed: 11000
   turnRate: 3
   fleeDuration: 0
   chaseDuration: 12
@@ -31,4 +30,4 @@ MonoBehaviour:
   canBeCaught: 0
   swimSound: {fileID: 0}
   attackSound: {fileID: 0}
-  animatorController: {fileID: 0}
+  sprite: {fileID: 0}

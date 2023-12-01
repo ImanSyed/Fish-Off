@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Shol-gyth
   m_EditorClassIdentifier: 
   fishType: Shol-gyth
-  predatorHierarchy: 0
   onDetectBehaviour: Chase
   onAttackedBehaviour: Chase
-  wanderSpeed: 45
-  fleeSpeed: 5
-  chaseSpeed: 6
+  wanderSpeed: 1200
+  fleeSpeed: 1600
+  chaseSpeed: 1800
   turnRate: 3
   fleeDuration: 0
   chaseDuration: 10
@@ -31,4 +30,4 @@ MonoBehaviour:
   canBeCaught: 0
   swimSound: {fileID: 0}
   attackSound: {fileID: 0}
-  animatorController: {fileID: 0}
+  sprite: {fileID: 0}

@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Seaboneraven
   m_EditorClassIdentifier: 
   fishType: Seaboneraven
-  predatorHierarchy: 0
   onDetectBehaviour: Flee
   onAttackedBehaviour: Flee
-  wanderSpeed: 30
-  fleeSpeed: 5
-  chaseSpeed: 4.6
+  wanderSpeed: 700
+  fleeSpeed: 950
+  chaseSpeed: 0
   turnRate: 3
   fleeDuration: 0
   chaseDuration: 10
@@ -31,4 +30,4 @@ MonoBehaviour:
   canBeCaught: 0
   swimSound: {fileID: 0}
   attackSound: {fileID: 0}
-  animatorController: {fileID: 0}
+  sprite: {fileID: 0}

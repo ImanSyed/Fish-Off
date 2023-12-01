@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Steinraus
   m_EditorClassIdentifier: 
   fishType: Steinraus
-  predatorHierarchy: 0
   onDetectBehaviour: Chase
   onAttackedBehaviour: Chase
-  wanderSpeed: 24
-  fleeSpeed: 4
-  chaseSpeed: 3
+  wanderSpeed: 700
+  fleeSpeed: 800
+  chaseSpeed: 900
   turnRate: 3
   fleeDuration: 0
   chaseDuration: 10
@@ -31,4 +30,4 @@ MonoBehaviour:
   canBeCaught: 0
   swimSound: {fileID: 0}
   attackSound: {fileID: 0}
-  animatorController: {fileID: 0}
+  sprite: {fileID: 0}

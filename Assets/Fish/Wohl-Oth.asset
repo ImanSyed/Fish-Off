@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Wohl-Oth
   m_EditorClassIdentifier: 
   fishType: Wohl-Oth
-  predatorHierarchy: 0
   onDetectBehaviour: Chase
   onAttackedBehaviour: Chase
-  wanderSpeed: 28
-  fleeSpeed: 4
-  chaseSpeed: 4.5
+  wanderSpeed: 1200
+  fleeSpeed: 1400
+  chaseSpeed: 1500
   turnRate: 3
   fleeDuration: 0
   chaseDuration: 10
@@ -31,4 +30,4 @@ MonoBehaviour:
   canBeCaught: 0
   swimSound: {fileID: 0}
   attackSound: {fileID: 0}
-  animatorController: {fileID: 0}
+  sprite: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa0a1c484b21094a99a94eec0b76381, type: 3}
   m_Name: Longtailedjonrus
   m_EditorClassIdentifier: 
-  fishType: Child_Longtailedjonrus
+  fishType: Longtailedjonrus
   reward: 80
   rewardRandomiser: 15
   sprite: {fileID: 1736583152, guid: c7207611166beb148aac355eed7b08fe, type: 3}

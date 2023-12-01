@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa0a1c484b21094a99a94eec0b76381, type: 3}
   m_Name: Eyeguy
   m_EditorClassIdentifier: 
-  fishType: Child_Eyeguy
-  reward: 50
-  rewardRandomiser: 5
+  fishType: Eyeguy
+  reward: 180
+  rewardRandomiser: 40
   sprite: {fileID: -1537963632, guid: c7207611166beb148aac355eed7b08fe, type: 3}
