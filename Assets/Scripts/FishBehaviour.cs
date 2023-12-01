@@ -104,7 +104,6 @@ public class FishBehaviour : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(shopUI.pauseGame)
@@ -374,8 +373,13 @@ public class FishBehaviour : MonoBehaviour
         }
         else if(!myStats.canBeCaught)
         {
+            string fishName = myStats.fishType;
             myStats = myStats.childFish;
-            animator.runtimeAnimatorController = myStats.animatorController;
+            myStats.fishType = fishName;
+            frontSprite.sprite = myStats.sprite;
+            sideSprite.sprite = myStats.sprite;
+            backSprite.sprite = myStats.sprite;
+            animator.enabled = false;
             myRenderersTransform.localScale = Vector3.one;
             myColliderTransform.localScale = Vector3.one;
         }

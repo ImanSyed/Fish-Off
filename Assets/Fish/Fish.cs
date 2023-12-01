@@ -13,6 +13,6 @@ public class Fish : ScriptableObject
     public Fish childFish;
     public bool canBeCaught;
     public AudioClip swimSound, attackSound;
-    public AnimatorOverrideController animatorController;
+    public Sprite sprite;
 
 }
