@@ -34,9 +34,21 @@ public class FishBehaviour : MonoBehaviour
     {
         origin = transform.position;
         wayPoint = origin;
+
+        playerController = FindObjectOfType<FPSController>();
+        shopUI = FindAnyObjectByType<ShopUI>();
+
+        rb = GetComponent<Rigidbody>();
+
+        SetBehaviourState(BehaviourState.wandering);
+
+        if(myStats.fishType == "Dumbass Fish")
+        {
+            return;
+        }
+
         renderPoint = sideSprite.transform;
         
-        rb = GetComponent<Rigidbody>();
 
         animator = GetComponentInChildren<Animator>();
 
@@ -46,12 +58,8 @@ public class FishBehaviour : MonoBehaviour
 
         myRenderersTransform = frontSprite.transform.parent;
 
-        playerController = FindObjectOfType<FPSController>();
-        shopUI = FindAnyObjectByType<ShopUI>();
-
         audioSource = GetComponent<AudioSource>();
 
-        SetBehaviourState(BehaviourState.wandering);
     }
 
     /// <summary>
@@ -77,19 +85,6 @@ public class FishBehaviour : MonoBehaviour
                 break;
             }
         }
-        else
-        {
-            if(detectedHierarchy > myStats.predatorHierarchy)
-            {
-                predatorTarget = detectedBody;
-                SetBehaviourState(BehaviourState.fleeing);
-            }
-            else if(detectedHierarchy < myStats.predatorHierarchy)
-            {
-                preyTarget = detectedBody;
-                SetBehaviourState(BehaviourState.chasing);
-            }
-        }
     }
 
     /// <summary>
@@ -106,12 +101,20 @@ public class FishBehaviour : MonoBehaviour
 
     void Update()
     {
+
         if(shopUI.pauseGame)
         {
             return;
         }
 
+        if(myStats.fishType == "Dumbass Fish")
+        {
+            Wander();
+            return;
+        }
+
         RenderFish();
+
 
         switch(currentBehaviourState)
         {
@@ -175,8 +178,7 @@ public class FishBehaviour : MonoBehaviour
                 {
                     animator.Play("Attack", 0);
                 }
-            return;
-            
+            return;            
         }
     }
 
@@ -203,10 +205,10 @@ public class FishBehaviour : MonoBehaviour
         int layermask = 1 << 2;
         layermask = ~layermask;
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, newDirection, out hit, 50, layermask))
+        if(Physics.Raycast(transform.position, newDirection, out hit, 150, layermask))
         {
             turnRateModifier *= 5;
-            if(Physics.Raycast(transform.position, previousDirection, out hit, 50, layermask))
+            if(Physics.Raycast(transform.position, previousDirection, out hit, 150, layermask))
             {
                 bool b = Random.value > 0.5f;
                 Vector3 leftRight = b ? transform.right : -transform.right; 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793951189cb414a44ace04fab4ba3d0b, type: 3}
   m_Name: Child_Shuk-tukhu
   m_EditorClassIdentifier: 
-  fishType: Jellyfish
+  fishType: 
   predatorHierarchy: 0
   onDetectBehaviour: Flee
   onAttackedBehaviour: Flee
@@ -31,4 +31,4 @@ MonoBehaviour:
   canBeCaught: 1
   swimSound: {fileID: 0}
   attackSound: {fileID: 0}
-  animatorController: {fileID: 0}
+  sprite: {fileID: 0}

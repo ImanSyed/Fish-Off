@@ -4,7 +4,6 @@ using UnityEngine;
 public class Fish : ScriptableObject
 {
     public string fishType;
-    public int predatorHierarchy;
     public string onDetectBehaviour, onAttackedBehaviour;
     public float wanderSpeed, fleeSpeed, chaseSpeed, turnRate;
     public float fleeDuration, chaseDuration;

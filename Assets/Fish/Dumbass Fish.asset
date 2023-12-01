@@ -10,25 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 793951189cb414a44ace04fab4ba3d0b, type: 3}
-  m_Name: Jellyfish
+  m_Name: Dumbass Fish
   m_EditorClassIdentifier: 
-  fishType: Jellyfish
-  predatorHierarchy: 0
-  onDetectBehaviour: Chase
-  onAttackedBehaviour: Chase
-  wanderSpeed: 250
-  fleeSpeed: 300
-  chaseSpeed: 300
-  turnRate: 3
+  fishType: Dumbass Fish
+  onDetectBehaviour: 
+  onAttackedBehaviour: 
+  wanderSpeed: 500
+  fleeSpeed: 0
+  chaseSpeed: 0
+  turnRate: 2
   fleeDuration: 0
-  chaseDuration: 10
+  chaseDuration: 0
   wanderSharpTurns: 0
   fleeSharpTurns: 0
   chaseSharpTurns: 0
-  minimumShrinkSize: 0.25
+  minimumShrinkSize: 1
   attackDamage: 0
   childFish: {fileID: 0}
   canBeCaught: 0
   swimSound: {fileID: 0}
   attackSound: {fileID: 0}
-  animatorController: {fileID: 0}
+  sprite: {fileID: 0}
