@@ -15,7 +15,7 @@ public class FishCollider : MonoBehaviour
     {
         if(other.collider.CompareTag("Player") && fishBehaviour.myStats.canBeCaught)
         {
-            fishBehaviour.Catch();
+            //fishBehaviour.Catch();
         }
     }
 }

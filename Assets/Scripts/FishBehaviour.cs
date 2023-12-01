@@ -413,9 +413,4 @@ public class FishBehaviour : MonoBehaviour
         transform.position = succPos;
     }
 
-    public void Catch()
-    {
-        playerController.fishCollection[myStats.fishType] = playerController.fishCollection[myStats.fishType]++;
-
-    }
 }

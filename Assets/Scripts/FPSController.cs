@@ -32,7 +32,7 @@ public class FPSController : MonoBehaviour
     private float rotationX = 0;
     private Camera cam;
     private Rigidbody rb;
-    public Dictionary<string, int> fishCollection = new Dictionary<string, int>();
+    public List<string> fishCollection = new List<string>();
     private ShopUI shopUI;
 
 
@@ -50,20 +50,7 @@ public class FPSController : MonoBehaviour
 
     private void InitialiseFishCollection()
     {
-        fishCollection.Add("Chin-Chin", 0);
-        fishCollection.Add("Dst-Byster", 0);
-        fishCollection.Add("Eyeguy", 0);
-        fishCollection.Add("Fishman", 0);
-        fishCollection.Add("Halihustur", 0);
-        fishCollection.Add("Longtailedjonrus", 0);
-        fishCollection.Add("Seaboneraven", 0);
-        fishCollection.Add("Shelpus", 0);
-        fishCollection.Add("Shol-gyth", 0);
-        fishCollection.Add("Shuk-tukhu", 0);
-        fishCollection.Add("Steinclover", 0);
-        fishCollection.Add("Steinraus", 0);
-        fishCollection.Add("Trapastavoid", 0);
-        fishCollection.Add("Wohl-oth", 0);
+        fishCollection.Add("Chin-Chin");
     }
 
     void Update()
@@ -235,7 +222,7 @@ public class FPSController : MonoBehaviour
         {
             if(other.gameObject.GetComponent<FishBehaviour>().myStats.canBeCaught)
             {
-                fishCollection.Add(other.gameObject.GetComponent<FishBehaviour>().myStats.fishType, 1);
+                fishCollection.Add(other.gameObject.GetComponent<FishBehaviour>().myStats.fishType);
             }
         }
     }

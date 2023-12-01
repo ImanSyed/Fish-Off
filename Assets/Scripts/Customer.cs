@@ -41,9 +41,9 @@ public class Customer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if(canClick)
         {
-            if(playerController.fishCollection[currentBounty.name] > 0)
+            if(playerController.fishCollection.Contains(currentBounty.fishType))
             {
-                playerController.fishCollection[currentBounty.name]--;
+                playerController.fishCollection.Remove(currentBounty.fishType);
                 BountyComplete();
             }
             else
