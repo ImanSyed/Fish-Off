@@ -39,6 +39,8 @@ public class ShopUI : MonoBehaviour
     {
         shopFront.SetActive(b);
         pauseGame = b;
+        playerController.canShoot = !pauseGame;
+        playerController.canMove = !pauseGame;
         Cursor.visible = b;
         
         if(!b)
