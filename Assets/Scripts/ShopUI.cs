@@ -7,7 +7,7 @@ public class ShopUI : MonoBehaviour
 {
     public int money;
     [SerializeField] TMPro.TMP_Text moneyText;
-    [SerializeField] GameObject shopFront;
+    [SerializeField] GameObject shopFront, tuteScreen, tuteButton;
     [SerializeField] int[] speedUpgradePrices, o2UpgradePrices;
     [SerializeField] float speedIncreaseValue, o2IncreaseValue;
     [SerializeField] string maxedMessage;
@@ -150,6 +150,16 @@ public class ShopUI : MonoBehaviour
             animator.Play("Start", 0);
             started = true;
         }
+    }
+
+    public void ShowTute(bool b)
+    {
+        if(tuteButton != null)
+        {
+            Destroy(tuteButton);
+        }
+        
+        tuteScreen.SetActive(b);
     }
 
     public void QuitGame()
