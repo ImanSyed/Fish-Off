@@ -39,7 +39,7 @@ public class FPSController : MonoBehaviour
     {
         canMove = false;
         canShoot = false;
-        Application.targetFrameRate = 24;
+        //Application.targetFrameRate = 24;
         cam = Camera.main;
         shopUI = FindAnyObjectByType<ShopUI>();
         rb = GetComponent<Rigidbody>();
@@ -171,9 +171,11 @@ public class FPSController : MonoBehaviour
     {
         Vector3 divePosition = transform.position;
 
+        int layermask = 1 << 6;
+
         RaycastHit hit;
 
-        if(Physics.Raycast(transform.position, Vector3.down, out hit, diveDistance))
+        if(Physics.Raycast(transform.position, Vector3.down, out hit, diveDistance, layermask))
         {
             divePosition.y = hit.point.y + 10; 
         }
@@ -231,7 +233,7 @@ public class FPSController : MonoBehaviour
     {
         if(other.collider.CompareTag("Fish") && !shopUI.pauseGame)
         {
-            if(other.transform.parent.gameObject.GetComponent<FishBehaviour>().myStats.canBeCaught)
+            if(other.gameObject.GetComponent<FishBehaviour>().myStats.canBeCaught)
             {
                 fishCollection.Add(other.gameObject.GetComponent<FishBehaviour>().myStats.fishType, 1);
             }

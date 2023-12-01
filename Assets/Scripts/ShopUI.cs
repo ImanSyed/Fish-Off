@@ -18,7 +18,7 @@ public class ShopUI : MonoBehaviour
     Animator animator;
     int speedUpgradeCounter, o2UpgradeCounter;
     FPSController playerController;
-    bool canStart;
+    bool canStart, started;
     public bool pauseGame;
 
     void Start()
@@ -37,6 +37,11 @@ public class ShopUI : MonoBehaviour
     
     public void ShowShop(bool b)
     {
+        if(!started)
+        {
+            return;
+        }
+
         shopFront.SetActive(b);
         pauseGame = b;
         playerController.canShoot = !pauseGame;
@@ -143,6 +148,7 @@ public class ShopUI : MonoBehaviour
         {
             FindObjectOfType<Customer>().GetCustomer();
             animator.Play("Start", 0);
+            started = true;
         }
     }
 
