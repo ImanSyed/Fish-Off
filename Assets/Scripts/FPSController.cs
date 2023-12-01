@@ -243,6 +243,6 @@ public class FPSController : MonoBehaviour
     void GameOver()
     {
         gameOverScreen.SetActive(true);
-        Destroy(gameObject);
+        this.enabled = false;
     }
 }

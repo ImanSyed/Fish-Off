@@ -358,10 +358,12 @@ public class FishBehaviour : MonoBehaviour
     {
         if(myStats.onAttackedBehaviour == "Chase")
         {
+            preyTarget = playerController.transform;
             SetBehaviourState(BehaviourState.chasing);
         }
         else if(myStats.onAttackedBehaviour == "Flee")
         {
+            predatorTarget = playerController.transform;
             SetBehaviourState(BehaviourState.fleeing);
         }
         if(myRenderersTransform.localScale.x > myStats.minimumShrinkSize)

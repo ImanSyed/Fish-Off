@@ -321,7 +321,7 @@ Transform:
   m_Children:
   - {fileID: 3175524322180707740}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3100779107303150702
 CapsuleCollider:
@@ -372,7 +372,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 3
+  m_CollisionDetection: 1
 --- !u!114 &7669113421616199219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,17 +385,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30b9900733662842af12afa50699bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 1000
-  runningSpeed: 2000
+  walkingSpeed: 600
+  runningSpeed: 1400
   playerCamera: {fileID: 3687805605065491454}
-  lookSpeed: 2
+  lookSpeed: 3
   lookXLimit: 75
-  waterYPoint: 100
-  diveDistance: 55
+  waterYPoint: 250
+  diveDistance: 100
   canMove: 1
   canShoot: 1
-  shrinkRayDistance: 200
-  suctionRayDistance: 200
+  shrinkRayDistance: 300
+  suctionRayDistance: 300
   shrinkRayMagnitude: 0.2
   suctionRayMagnitude: 10
   shrinkVFX: {fileID: 689732920052797539}
@@ -405,8 +405,9 @@ MonoBehaviour:
     m_Bits: 8
   flashlight: {fileID: 447145124290822847}
   maxO2: 100
-  o2DecreaseRate: 0.01
+  o2DecreaseRate: 0.005
   o2Text: {fileID: 2496306490721106681}
+  gameOverScreen: {fileID: 0}
 --- !u!1 &4435664621693033263
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +759,7 @@ Camera:
   m_BackGroundColor: {r: 0.700178, g: 0.8301887, b: 0.76423967, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
-  m_FOVAxisMode: 0
+  m_FOVAxisMode: 1
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
@@ -777,8 +778,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.05
-  far clip plane: 1000
-  field of view: 50
+  far clip plane: 4000
+  field of view: 26.609129
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
