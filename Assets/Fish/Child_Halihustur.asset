@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Child_Halihustur
   m_EditorClassIdentifier: 
   fishType: 
-  predatorHierarchy: 0
   onDetectBehaviour: Flee
   onAttackedBehaviour: Flee
   wanderSpeed: 5
@@ -31,4 +30,4 @@ MonoBehaviour:
   canBeCaught: 1
   swimSound: {fileID: 0}
   attackSound: {fileID: 0}
-  sprite: {fileID: 0}
+  sprite: {fileID: -1180227964, guid: c7207611166beb148aac355eed7b08fe, type: 3}
