@@ -15,9 +15,9 @@ MonoBehaviour:
   fishType: Fishman
   onDetectBehaviour: Chase
   onAttackedBehaviour: Chase
-  wanderSpeed: 860
-  fleeSpeed: 1000
-  chaseSpeed: 11000
+  wanderSpeed: 0
+  fleeSpeed: 0
+  chaseSpeed: 0
   turnRate: 3
   fleeDuration: 0
   chaseDuration: 12
@@ -28,6 +28,4 @@ MonoBehaviour:
   attackDamage: 0
   childFish: {fileID: 11400000, guid: b53dd0cb9ab75c14c8d306c30890d943, type: 2}
   canBeCaught: 0
-  swimSound: {fileID: 0}
-  attackSound: {fileID: 0}
   sprite: {fileID: 0}

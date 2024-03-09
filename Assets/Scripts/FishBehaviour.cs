@@ -10,6 +10,8 @@ public class FishBehaviour : MonoBehaviour
     [SerializeField] private Collider frontCollider, sideCollider;
     private Transform renderPoint;
     private Animator animator;
+    private float shrinkStep, originalShrinkStep;
+
 
     public enum BehaviourState
     {
@@ -49,7 +51,6 @@ public class FishBehaviour : MonoBehaviour
 
         renderPoint = sideSprite.transform;
         
-
         animator = GetComponentInChildren<Animator>();
 
         frontSprite.enabled = false;
@@ -57,6 +58,9 @@ public class FishBehaviour : MonoBehaviour
         backSprite.enabled = false;
 
         myRenderersTransform = frontSprite.transform.parent;
+
+        shrinkStep = 0.5f;
+        originalShrinkStep = shrinkStep;
 
     }
 
@@ -264,7 +268,7 @@ public class FishBehaviour : MonoBehaviour
         {
             turnRateModifier = 100;
         }
-
+                                      
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, transform.position - predatorTarget.position, myStats.turnRate * turnRateModifier, 0);
         transform.rotation = Quaternion.LookRotation(newDirection);
         rb.velocity = transform.forward * myStats.fleeSpeed * Time.deltaTime;
@@ -353,6 +357,9 @@ public class FishBehaviour : MonoBehaviour
         Vector3 perp = Vector3.Cross(forward, targetDir);
         float dir = Vector3.Dot(perp, up);
         
+        return dir > 0;
+        
+        /*
         if(dir > 0)
         {
             return true;
@@ -361,28 +368,44 @@ public class FishBehaviour : MonoBehaviour
         {
             return false;
         }
+        */
 
     }
 
     public void ShrinkMe(float magnitude)
     {
-        if(myStats.onAttackedBehaviour == "Chase")
+        if(myStats.onAttackedBehaviour == "Chase" && currentBehaviourState != BehaviourState.chasing)
         {
             preyTarget = playerController.transform;
             SetBehaviourState(BehaviourState.chasing);
         }
-        else if(myStats.onAttackedBehaviour == "Flee")
+        if(myStats.onAttackedBehaviour == "Flee" && currentBehaviourState != BehaviourState.fleeing)
         {
             predatorTarget = playerController.transform;
             SetBehaviourState(BehaviourState.fleeing);
         }
-        if(myRenderersTransform.localScale.x > myStats.minimumShrinkSize)
+        if(transform.parent.localScale.x > myStats.minimumShrinkSize)
         {
-            myStats.wanderSpeed -= 1 * magnitude * Time.deltaTime;
-            myStats.fleeSpeed -= 1 * magnitude * Time.deltaTime;
-            myStats.chaseSpeed -= 1 * magnitude * Time.deltaTime;
-            myRenderersTransform.localScale -= Vector3.one * magnitude * Time.deltaTime;
-            myColliderTransform.localScale = myRenderersTransform.localScale;
+            if(shrinkStep <= 0)
+            {
+                shrinkStep = originalShrinkStep;
+                myStats.wanderSpeed -= magnitude;
+                myStats.fleeSpeed -= magnitude;
+                myStats.chaseSpeed -= magnitude;
+                //myRenderersTransform.localScale -= Vector3.one * magnitude * Time.deltaTime;
+                //myColliderTransform.localScale = myRenderersTransform.localScale;
+                transform.parent.localScale -= Vector3.one * magnitude;
+            }
+            else
+            {
+                if(Mathf.Round(shrinkStep * 10) % 0.5f == 0)
+                {
+                    transform.RotateAround(transform.position, transform.parent.position - playerController.transform.position, Random.Range(-15, 15));
+                    transform.position = new Vector3(transform.position.x + Random.Range(-transform.parent.localScale.x, transform.parent.localScale.x), transform.position.y + Random.Range(-transform.parent.localScale.x, transform.parent.localScale.x), transform.position.z + Random.Range(-transform.parent.localScale.x, transform.parent.localScale.x));
+                }
+                shrinkStep -= Time.deltaTime;
+            }
+           
         }
         else if(!myStats.canBeCaught)
         {

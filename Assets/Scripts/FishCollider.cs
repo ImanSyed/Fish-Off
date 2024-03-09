@@ -5,7 +5,7 @@ using UnityEngine;
 public class FishCollider : MonoBehaviour
 {
     private FishBehaviour fishBehaviour;
-    // Start is called before the first frame update
+
     void Start()
     {
         fishBehaviour = GetComponentInParent<FishBehaviour>();

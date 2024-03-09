@@ -223,7 +223,7 @@ public class FPSController : MonoBehaviour
             if(other.gameObject.GetComponent<FishBehaviour>().myStats.canBeCaught)
             {
                 fishCollection.Add(other.gameObject.GetComponent<FishBehaviour>().myStats.fishType);
-                Destroy(other.gameObject);
+                Destroy(other.transform.parent.gameObject);
             }
         }
     }

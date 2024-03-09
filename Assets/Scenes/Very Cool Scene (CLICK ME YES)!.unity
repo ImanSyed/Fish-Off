@@ -4199,7 +4199,7 @@ PrefabInstance:
     - target: {fileID: 1377347419139031718, guid: 8eec83f46aa4afc4991162b8f7530e95,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8164458206550746450, guid: 8eec83f46aa4afc4991162b8f7530e95,
         type: 3}
@@ -9818,6 +9818,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3687805605065491454, guid: 4775d99fc0f2f1a41b22fb5905481850,
+        type: 3}
+      propertyPath: field of view
+      value: 26.609129
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687805605065491454, guid: 4775d99fc0f2f1a41b22fb5905481850,
+        type: 3}
+      propertyPath: m_FocalLength
+      value: 57.0887
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687805605065491454, guid: 4775d99fc0f2f1a41b22fb5905481850,
+        type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3771510757921844302, guid: 4775d99fc0f2f1a41b22fb5905481850,
         type: 3}
       propertyPath: m_Name
@@ -10470,6 +10485,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF_Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727992923455357186, guid: d3118c2ae40c9d74086eab7efb3a53f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5844332528233686265, guid: d3118c2ae40c9d74086eab7efb3a53f3,
         type: 3}

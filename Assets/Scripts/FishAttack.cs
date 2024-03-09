@@ -15,6 +15,7 @@ public class FishAttack : MonoBehaviour
     {
         if(fishBehaviour.currentBehaviourState == FishBehaviour.BehaviourState.chasing && other.CompareTag("Player"))
         {
+            Debug.Log(transform.parent.name + " Attacking");
             fishBehaviour.Attack();
         }    
     }
