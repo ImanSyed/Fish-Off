@@ -3870,6 +3870,7 @@ GameObject:
   - component: {fileID: 271152465617751119}
   - component: {fileID: 6310753118807159915}
   - component: {fileID: 3982226483743329573}
+  - component: {fileID: 5026905527700157240}
   m_Layer: 5
   m_Name: PF_Shop
   m_TagString: Untagged
@@ -3894,7 +3895,7 @@ RectTransform:
   - {fileID: 535707826691855222}
   - {fileID: 3551447114331199269}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4020,6 +4021,102 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &5026905527700157240
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3727992923455357186}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f304cce702c70e94290152a395abc1ea, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.25
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3925867600109090691
 GameObject:
   m_ObjectHideFlags: 0
@@ -5661,7 +5758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3551447114331199269
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8868,15 +8965,24 @@ MonoBehaviour:
   - {fileID: 1226627061, guid: ed8247228cff35c43848404ae0be0a52, type: 3}
   - {fileID: 184550360, guid: ed8247228cff35c43848404ae0be0a52, type: 3}
   tier1Bounties:
-  - {fileID: 11400000, guid: 5caab95b1e025e44faeeae3ed95bcbcd, type: 2}
+  - {fileID: 11400000, guid: 660529af1494dce4daef300a48c37bff, type: 2}
+  - {fileID: 11400000, guid: 53e2f3b999ee64b41bb547ff821b1e73, type: 2}
+  - {fileID: 11400000, guid: 076f834f6bf2e2a4fb689812b1f774cc, type: 2}
+  - {fileID: 11400000, guid: 2231c8c7db14ad246a9ef36795e9bb58, type: 2}
   tier2Bounties:
   - {fileID: 11400000, guid: ceaec8d3ac197b840b81d7dca0751379, type: 2}
+  - {fileID: 11400000, guid: b8863c0589f33c543aa895e3b6c5ddc6, type: 2}
+  - {fileID: 11400000, guid: edd96036791401f4cb1e9064bdae7d8c, type: 2}
   tier3Bounties:
   - {fileID: 11400000, guid: 9214ef39546d4524e9e3ab155c0748f0, type: 2}
+  - {fileID: 11400000, guid: f40d9b27454dbf8429ec5486554f20d1, type: 2}
+  - {fileID: 11400000, guid: 2637706fcbe1b4a4bb8aa93b0bfb2d6b, type: 2}
+  - {fileID: 11400000, guid: 87095cc18bc219a4e890f83d1c982f9a, type: 2}
+  - {fileID: 11400000, guid: ca28f2fb40eae2a4aaa5e534bef070a1, type: 2}
   bountyPopup: {fileID: 6441605657756520835}
   bountyImage: {fileID: 7343676925440397289}
   currentTier: 1
-  tierIncreaseThreshold: 0
+  tierIncreaseThreshold: 150
   animator: {fileID: 9069070988723199320}
 --- !u!1 &8634237832836931137
 GameObject:

@@ -294,9 +294,9 @@ public class FishBehaviour : MonoBehaviour
         wanderTime = 0;
 
         Vector3 newPoint = origin;
-        newPoint.x += Random.Range(-wanderBounds.bounds.extents.x, wanderBounds.bounds.extents.x);
-        newPoint.y += Random.Range(-wanderBounds.bounds.extents.y, wanderBounds.bounds.extents.y);
-        newPoint.z += Random.Range(-wanderBounds.bounds.extents.z, wanderBounds.bounds.extents.z);
+        newPoint.x = Random.Range(-wanderBounds.bounds.extents.x, wanderBounds.bounds.extents.x);
+        newPoint.y = Random.Range(-wanderBounds.bounds.extents.y, wanderBounds.bounds.extents.y);
+        newPoint.z = Random.Range(-wanderBounds.bounds.extents.z, wanderBounds.bounds.extents.z);
         
         wayPoint = newPoint;
     }
