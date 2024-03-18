@@ -15,8 +15,8 @@ MonoBehaviour:
   fishType: 
   onDetectBehaviour: Flee
   onAttackedBehaviour: Flee
-  wanderSpeed: 5
-  fleeSpeed: 7.5
+  wanderSpeed: 1
+  fleeSpeed: 2
   chaseSpeed: 0
   turnRate: 3
   fleeDuration: 0
@@ -28,6 +28,4 @@ MonoBehaviour:
   attackDamage: 0
   childFish: {fileID: 0}
   canBeCaught: 1
-  swimSound: {fileID: 0}
-  attackSound: {fileID: 0}
   sprite: {fileID: 1736583152, guid: c7207611166beb148aac355eed7b08fe, type: 3}

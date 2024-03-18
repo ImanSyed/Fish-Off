@@ -205,19 +205,11 @@ public class FishBehaviour : MonoBehaviour
         int layermask = 1 << 2;
         layermask = ~layermask;
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, newDirection, out hit, 150, layermask))
+        if(Physics.Raycast(transform.position, newDirection, out hit, 5, layermask) && Vector3.Distance(hit.point, transform.position) < Vector3.Distance(wayPoint, transform.position))
         {
-            turnRateModifier *= 5;
-            if(Physics.Raycast(transform.position, previousDirection, out hit, 150, layermask))
-            {
-                bool b = Random.value > 0.5f;
-                Vector3 leftRight = b ? transform.right : -transform.right; 
-                newDirection = Vector3.RotateTowards(transform.forward, leftRight + transform.forward, myStats.turnRate * turnRateModifier, 0);
-            }
-            else
-            {
-                newDirection = Vector3.RotateTowards(transform.forward, previousDirection, myStats.turnRate * turnRateModifier, 0);
-            }
+            Debug.Log("Obstacle detected.");
+            newDirection = Vector3.RotateTowards(transform.forward, (targetDirection + transform.right + (transform.up/2)).normalized, myStats.turnRate * turnRateModifier, 0);
+            
         }
 
         transform.rotation = Quaternion.LookRotation(newDirection);
@@ -294,11 +286,16 @@ public class FishBehaviour : MonoBehaviour
         wanderTime = 0;
 
         Vector3 newPoint = origin;
-        newPoint.x = Random.Range(-wanderBounds.bounds.extents.x, wanderBounds.bounds.extents.x);
-        newPoint.y = Random.Range(-wanderBounds.bounds.extents.y, wanderBounds.bounds.extents.y);
-        newPoint.z = Random.Range(-wanderBounds.bounds.extents.z, wanderBounds.bounds.extents.z);
+        newPoint.x += Random.Range(-wanderBounds.bounds.extents.x, wanderBounds.bounds.extents.x);
+        newPoint.y += Random.Range(-wanderBounds.bounds.extents.y, wanderBounds.bounds.extents.y);
+        newPoint.z += Random.Range(-wanderBounds.bounds.extents.z, wanderBounds.bounds.extents.z);
         
         wayPoint = newPoint;
+    }
+
+    void OnDrawGizmos() 
+    {
+        Gizmos.DrawSphere(wayPoint, 0.5f);
     }
 
     private void RenderFish()

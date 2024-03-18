@@ -15,10 +15,10 @@ MonoBehaviour:
   fishType: Dumbass Fish
   onDetectBehaviour: 
   onAttackedBehaviour: 
-  wanderSpeed: 500
+  wanderSpeed: 5
   fleeSpeed: 0
   chaseSpeed: 0
-  turnRate: 2
+  turnRate: 4
   fleeDuration: 0
   chaseDuration: 0
   wanderSharpTurns: 0
@@ -28,6 +28,4 @@ MonoBehaviour:
   attackDamage: 0
   childFish: {fileID: 0}
   canBeCaught: 0
-  swimSound: {fileID: 0}
-  attackSound: {fileID: 0}
   sprite: {fileID: 0}
