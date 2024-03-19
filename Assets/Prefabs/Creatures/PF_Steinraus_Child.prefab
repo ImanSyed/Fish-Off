@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4360082865685980648}
-  - component: {fileID: 1313428197426419596}
   - component: {fileID: 6137715397398102490}
   m_Layer: 3
   m_Name: Collider
@@ -33,18 +32,6 @@ Transform:
   m_Father: {fileID: 2418284131781491840}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1313428197426419596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88268479256924963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a75fe093ebf6ed4fa0fa1e920479766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &6137715397398102490
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -124,6 +111,9 @@ MonoBehaviour:
   myColliderTransform: {fileID: 4360082865685980648}
   frontCollider: {fileID: 0}
   sideCollider: {fileID: 0}
+  detectors: []
+  movementData: {fileID: 0}
+  detectionDelay: 0.1
   currentBehaviourState: 0
 --- !u!95 &4230674774362383653
 Animator:
@@ -519,7 +509,7 @@ Transform:
   - {fileID: 3824245443733925678}
   - {fileID: 2418284131781491840}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 8.446, y: -15.809, z: 0.376}
 --- !u!1 &8708849173505644998
 GameObject:

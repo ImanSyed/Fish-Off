@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class FishBehaviour : MonoBehaviour
+public class FishBehaviour : SteeringBehaviour
 {
     public Fish myStats;
     [SerializeField] private Collider wanderBounds;
@@ -12,6 +14,15 @@ public class FishBehaviour : MonoBehaviour
     private Animator animator;
     private float shrinkStep, originalShrinkStep;
 
+    [Header("AI Detection")]
+    [SerializeField] private List<Detector> detectors;
+    [SerializeField] private AIMovementData movementData;
+    [SerializeField] private float detectionDelay = 0.1f;
+    [SerializeField] private float radius = 2f;
+    [SerializeField] private float agentColliderSize = 0.5f;
+
+    [SerializeField] private bool showGizmos = true;
+    float[] dangersResultTemp = null;
 
     public enum BehaviourState
     {
@@ -62,6 +73,8 @@ public class FishBehaviour : MonoBehaviour
         shrinkStep = 0.5f;
         originalShrinkStep = shrinkStep;
 
+        StartCoroutine(PerformDetection());
+
     }
 
     /// <summary>
@@ -101,6 +114,7 @@ public class FishBehaviour : MonoBehaviour
         }
     }
 
+    /*
     void Update()
     {
         if(shopUI.pauseGame)
@@ -181,6 +195,7 @@ public class FishBehaviour : MonoBehaviour
             return;            
         }
     }
+    */
 
     /// <summary>
     /// Make the fish wander within its wander bounds
@@ -293,10 +308,67 @@ public class FishBehaviour : MonoBehaviour
         wayPoint = newPoint;
     }
 
+    public override (float[] danger, float[] interest) GetSteering(float[] danger, float[] interest, AIMovementData movementData)
+    {
+        foreach(Collider obstacleCollider in movementData.obstacles)
+        {
+            Vector3 directionToObstacle = obstacleCollider.ClosestPoint(transform.position) - transform.position;
+            directionToObstacle = directionToObstacle.normalized;
+
+            float distanceToObstacle = directionToObstacle.magnitude;
+
+            float weight = distanceToObstacle <= agentColliderSize ? 1 : (radius - distanceToObstacle) / radius;
+
+            for(int i  = 0; i < Directions.theDirections.Count; i++)
+            {
+                float result = Vector3.Dot(directionToObstacle, Directions.theDirections[i]);
+
+                float valueToPutIn = result * weight;
+
+                if(valueToPutIn > danger[i])
+                {
+                    danger[i] = valueToPutIn;
+                }
+            }
+        }
+        dangersResultTemp = danger;
+        return (danger, interest);
+    }
+
     void OnDrawGizmos() 
     {
-        Gizmos.DrawSphere(wayPoint, 0.5f);
+        if(showGizmos)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawSphere(wayPoint, 0.5f);
+
+            if(dangersResultTemp != null)
+            {
+                Gizmos.color = Color.red;
+                for(int i = 0; i < dangersResultTemp.Length; i++)
+                {
+                    Gizmos.DrawRay(transform.position, Directions.theDirections[i] * dangersResultTemp[i]);
+                }
+            }
+            else
+            {
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawWireSphere(transform.position, radius);
+            }
+        }
     }
+
+    IEnumerator PerformDetection()
+    {
+        yield return new WaitForSeconds(detectionDelay);
+        foreach(Detector detector in detectors)
+        {
+            detector.Detect(movementData);
+        }
+        StartCoroutine(PerformDetection());
+    }
+
+
 
     private void RenderFish()
     {
@@ -431,4 +503,37 @@ public class FishBehaviour : MonoBehaviour
         transform.position = succPos;
     }
 
+}
+
+public static class Directions
+{
+    public static List<Vector3> theDirections = new List<Vector3>
+    {
+        new Vector3(0, 0, 1).normalized,
+        new Vector3(0, 0, -1).normalized,
+        new Vector3(0, 1, 0).normalized,
+        new Vector3(0, -1, 0).normalized,
+        new Vector3(1, 0, 0).normalized,
+        new Vector3(-1, 0, 0).normalized,
+        new Vector3(1, 0, 1).normalized,
+        new Vector3(1, 0, -1).normalized,
+        new Vector3(-1, 0, 1).normalized,
+        new Vector3(-1, 0, -1).normalized,
+        new Vector3(0, 1, 1).normalized,
+        new Vector3(0, 1, -1).normalized,
+        new Vector3(0, -1, 1).normalized,
+        new Vector3(0, -1, -1).normalized,
+        new Vector3(1, 1, 0).normalized,
+        new Vector3(-1, 1, 0).normalized,
+        new Vector3(1, -1, 0).normalized,
+        new Vector3(-1, -1, 0).normalized,
+        new Vector3(1, 1, 1).normalized,
+        new Vector3(1, 1, -1).normalized,
+        new Vector3(1, -1, 1).normalized,
+        new Vector3(1, -1, -1).normalized,
+        new Vector3(-1, 1, 1).normalized,
+        new Vector3(-1, 1, -1).normalized,
+        new Vector3(-1, -1, 1).normalized,
+        new Vector3(-1, -1, -1).normalized,
+    };
 }
