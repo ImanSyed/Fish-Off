@@ -24,8 +24,6 @@ public class AITargetDetector : Detector
             {
                 if(hit.collider.gameObject.layer == 8)
                 {
-                    Debug.Log(gameObject.name + " detecting player!");
-
                     Debug.DrawRay(transform.position, targetDirection * detectionRange, Color.magenta);
                     colliders = new List<Transform>(){playerCollider.transform};
                 }

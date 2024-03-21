@@ -15,12 +15,12 @@ MonoBehaviour:
   fishType: 
   onDetectBehaviour: Flee
   onAttackedBehaviour: Flee
-  wanderSpeed: 1
+  wanderSpeed: 30
   fleeSpeed: 2
-  chaseSpeed: 0
+  chaseSpeed: 30
   turnRate: 3
   fleeDuration: 0
-  chaseDuration: 0
+  chaseDuration: 100
   wanderSharpTurns: 0
   fleeSharpTurns: 0
   chaseSharpTurns: 0
