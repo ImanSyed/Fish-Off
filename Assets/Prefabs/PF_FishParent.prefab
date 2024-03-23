@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab629d854ba8324c89bf0f6f48e0fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  col: {fileID: 0}
+  col: {fileID: 3173158849235950266}
   fishBehaviour: {fileID: 6650918265212350052}
 --- !u!1 &5719728360553370016
 GameObject:
@@ -590,7 +590,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5535418888053733911}
   - component: {fileID: 3173158849235950266}
-  - component: {fileID: 9131725841364375981}
   m_Layer: 3
   m_Name: Collider
   m_TagString: Fish
@@ -636,18 +635,6 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9131725841364375981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7614300228824038642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a75fe093ebf6ed4fa0fa1e920479766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5268025871286581130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -790,6 +777,14 @@ MonoBehaviour:
   backSprite: {fileID: 531565465579084411}
   myRenderersTransform: {fileID: 4515170010095416697}
   myColliderTransform: {fileID: 5535418888053733911}
+  frontCollider: {fileID: 0}
+  sideCollider: {fileID: 0}
+  detectors: []
+  movementData: {fileID: 0}
+  detectionDelay: 0.25
+  steeringBehaviours: []
+  contextSolver: {fileID: 0}
+  targetDetector: {fileID: 0}
   currentBehaviourState: 0
 --- !u!95 &7593266076909205055
 Animator:

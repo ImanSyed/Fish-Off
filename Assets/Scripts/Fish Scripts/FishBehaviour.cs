@@ -17,10 +17,10 @@ public class FishBehaviour : MonoBehaviour
     [Header("AI Detection")]
     [SerializeField] private List<Detector> detectors;
     [SerializeField] private AIMovementData movementData;
-    [SerializeField] private float detectionDelay = 0.1f;
+    [SerializeField] private float detectionDelay = 0.25f;
     [SerializeField] private List<SteeringBehaviour> steeringBehaviours;
     [SerializeField] private AIContextSolver contextSolver;
-
+    [SerializeField] private AITargetDetector targetDetector;
 
 
     public enum BehaviourState
@@ -159,6 +159,7 @@ public class FishBehaviour : MonoBehaviour
                 {
                     sharpTurns = false;
                 }
+                targetDetector.ResetTarget();
                 Chase();
             return;
             
@@ -199,7 +200,7 @@ public class FishBehaviour : MonoBehaviour
     /// </summary>
     private void Wander()
     {
-        if(Vector3.Distance(transform.position, wayPoint) < 1f)
+        if(Vector3.Distance(transform.position, wayPoint) < 0.1f)
         {
             GenerateWayPoint();
         }
@@ -211,7 +212,7 @@ public class FishBehaviour : MonoBehaviour
             turnRateModifier = 100;
         }
 
-        Vector3 targetDirection = wayPoint - transform.position;
+        Vector3 targetDirection = contextSolver.GetDirectionToMove(steeringBehaviours, movementData);
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, myStats.turnRate * turnRateModifier, 0);
         
         int layermask = 1 << 2;
@@ -241,7 +242,6 @@ public class FishBehaviour : MonoBehaviour
 
     private void Chase()
     {
-
         float turnRateModifier = Time.deltaTime;
 
         if(sharpTurns)
@@ -252,7 +252,7 @@ public class FishBehaviour : MonoBehaviour
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, contextSolver.GetDirectionToMove(steeringBehaviours, movementData), myStats.turnRate * turnRateModifier, 0);
         transform.rotation = Quaternion.LookRotation(newDirection);
         rb.velocity = transform.forward * myStats.chaseSpeed * Time.deltaTime;
-
+        
         chaseTime += Time.deltaTime;
 
         if(chaseTime > myStats.chaseDuration)
@@ -302,6 +302,8 @@ public class FishBehaviour : MonoBehaviour
         newPoint.z += Random.Range(-wanderBounds.bounds.extents.z, wanderBounds.bounds.extents.z);
         
         wayPoint = newPoint;
+
+        targetDetector.SetTarget(wayPoint);
     }
 
     private void OnDrawGizmos() 
@@ -321,7 +323,6 @@ public class FishBehaviour : MonoBehaviour
 
         StartCoroutine(PerformDetection());
     }
-
 
     private void RenderFish()
     {

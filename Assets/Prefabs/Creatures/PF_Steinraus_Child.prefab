@@ -157,6 +157,7 @@ MonoBehaviour:
   - {fileID: 3004497324289518433}
   - {fileID: 1013679072439425493}
   contextSolver: {fileID: 3655936462660020662}
+  targetDetector: {fileID: 1121762846766830210}
   currentBehaviourState: 2
 --- !u!114 &3156871115694664086
 MonoBehaviour:
@@ -534,6 +535,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   showGizmos: 1
+  targetTransform: {fileID: 0}
 --- !u!1 &5423235046768726954
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  agentColliderSize: 0.5
+  agentColliderSize: 0.75
   showGizmos: 1
 --- !u!1 &7470293974553568804
 GameObject:
@@ -823,7 +825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2853801535878566358
 Transform:
   m_ObjectHideFlags: 0
@@ -839,7 +841,7 @@ Transform:
   - {fileID: 3824245443733925678}
   - {fileID: 2418284131781491840}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 8.446, y: -15.809, z: 0.376}
 --- !u!1 &8708849173505644998
 GameObject:

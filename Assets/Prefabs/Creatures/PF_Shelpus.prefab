@@ -18,6 +18,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1335152163, guid: 54229891b2ce06a4b9075b9be7c9dfea,
         type: 3}
+    - target: {fileID: 1643729509176989754, guid: 46b107d085590a647afb23a00832527d,
+        type: 3}
+      propertyPath: col
+      value: 
+      objectReference: {fileID: 3451365952476364379}
     - target: {fileID: 3173158849235950266, guid: 46b107d085590a647afb23a00832527d,
         type: 3}
       propertyPath: m_Height
